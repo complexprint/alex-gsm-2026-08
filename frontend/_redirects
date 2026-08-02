@@ -1,0 +1,3 @@
+# Netlify-style SPA fallback. Любая ссылка отдаёт index.html со статусом 200,
+# а React Router сам разбирается с маршрутом.
+/*    /index.html   200

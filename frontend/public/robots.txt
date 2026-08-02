@@ -1,0 +1,26 @@
+# robots.txt for https://alex-gsm.at
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://alex-gsm.at/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow access to admin or private directories (if any in future)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/

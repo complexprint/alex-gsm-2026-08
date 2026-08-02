@@ -1,0 +1,21 @@
+# Иначе перенаправляем запрос на index.html, чтобы React Router сам обработал путь.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Не трогать реальные файлы (картинки, js, css, pdf, mp3, mp4, sitemap.xml, robots.txt и т.п.)
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Все остальные запросы отправляем в index.html (SPA fallback)
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Корректные MIME-типы и кэширование
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType image/svg+xml .svg
+</IfModule>
