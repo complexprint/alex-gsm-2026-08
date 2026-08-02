@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import {
   Mail,
@@ -15,8 +16,11 @@ import {
   Globe,
   Target,
   Handshake,
+  Newspaper,
+  ArrowRight,
 } from 'lucide-react';
 import NavigationButtons from '../components/NavigationButtons';
+import useSEO from '../hooks/useSEO';
 
 const portraitImage = 'Aleksei Bespechnyi.jpeg';
 
@@ -31,6 +35,20 @@ const fadeUp = {
 
 const Home = () => {
   const { language } = useLanguage();
+  const navigate = useNavigate();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Aleksei Bespechnyi — Marketing Manager | Digital Marketing & Sales | alex-gsm.at'
+        : 'Aleksei Bespechnyi — Marketing Manager | Digital Marketing & Sales | alex-gsm.at',
+    description:
+      language === 'de'
+        ? 'Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Organic Social Reichweite, +124% Organic Search Traffic. Bachelor Global Sales & Marketing (FH Steyr). Autor bei MeinBezirk.at.'
+        : 'Marketing Manager with hands-on experience at Roll Out Innovation GmbH. +496% Organic Social reach, +124% Organic Search traffic. Bachelor Global Sales & Marketing (FH Steyr). Contributor at MeinBezirk.at.',
+    canonical: 'https://alex-gsm.at/',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
 
   const handleMakeOffer = () => {
     const subject =
@@ -323,6 +341,111 @@ const Home = () => {
                   <ExternalLink className="w-5 h-5" />
                   {language === 'de' ? 'Besuchen Sie partyboss.at' : 'Visit partyboss.at'}
                 </a>
+              </div>
+            </div>
+          </motion.section>
+
+          {/* MEINBEZIRK PUBLICATIONS */}
+          <motion.section
+            data-testid="publications-card"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            className="lg:col-span-12 relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-fuchsia-600/10 via-zinc-900/40 to-violet-600/10 p-8 lg:p-12"
+          >
+            <div className="absolute -top-24 -right-24 w-[380px] h-[380px] rounded-full bg-fuchsia-500/10 blur-[100px] pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-[380px] h-[380px] rounded-full bg-violet-500/10 blur-[100px] pointer-events-none" />
+
+            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-fuchsia-500/20 to-violet-500/20 border border-white/10">
+                    <Newspaper className="w-6 h-6 text-fuchsia-400" />
+                  </span>
+                  <p className="text-xs font-heading font-bold uppercase tracking-[0.25em] text-zinc-500">
+                    {language === 'de' ? 'Publikationen · MeinBezirk.at' : 'Publications · MeinBezirk.at'}
+                  </p>
+                </div>
+                <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4 leading-tight">
+                  {language === 'de'
+                    ? '9 Artikel als freier Autor bei MeinBezirk.at'
+                    : '9 articles as a freelance contributor at MeinBezirk.at'}
+                </h3>
+                <p className="text-zinc-400 leading-relaxed max-w-2xl mb-6">
+                  {language === 'de'
+                    ? 'Seit 2025 veröffentliche ich Gastbeiträge über Linz, Steyr, Studenten-Alltag, voestalpine, Gastronomie und Kultur. Über 17.000 erreichte Leser – Copywriting live in einem der reichweitenstärksten österreichischen Regionalportale.'
+                    : 'Since 2025 I have been publishing guest articles about Linz, Steyr, student life, voestalpine, hospitality and culture. Over 17,000 readers reached – copywriting in action on one of Austria’s largest regional platforms.'}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-8">
+                  {['Linz', 'Steyr', 'Oberösterreich', 'Copywriting', 'Content Marketing'].map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <button
+                    data-testid="publications-cta"
+                    onClick={() => navigate('/publications')}
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-600 to-violet-600 hover:scale-[1.02] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(192,38,211,0.25)] hover:shadow-[0_0_35px_rgba(192,38,211,0.5)] border border-white/20"
+                  >
+                    {language === 'de' ? 'Alle Publikationen ansehen' : 'View all publications'}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <a
+                    href="https://www.meinbezirk.at/linz/profile-772419/aleksei-bespechnyi?type=article&filter=published"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-fuchsia-500/30 text-white px-6 py-3 rounded-full font-semibold transition-all"
+                  >
+                    {language === 'de' ? 'Autorenprofil' : 'Author profile'}
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="lg:col-span-5">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+                    <p className="font-heading text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-400">
+                      9
+                    </p>
+                    <p className="text-sm text-zinc-400 mt-1">
+                      {language === 'de' ? 'veröffentlichte Artikel' : 'published articles'}
+                    </p>
+                  </div>
+                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+                    <p className="font-heading text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-400">
+                      17k+
+                    </p>
+                    <p className="text-sm text-zinc-400 mt-1">
+                      {language === 'de' ? 'erreichte Leser' : 'readers reached'}
+                    </p>
+                  </div>
+                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+                    <p className="font-heading text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-400">
+                      2025
+                    </p>
+                    <p className="text-sm text-zinc-400 mt-1">
+                      {language === 'de' ? 'Autor seit' : 'contributor since'}
+                    </p>
+                  </div>
+                  <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
+                    <p className="font-heading text-lg sm:text-xl font-bold text-white leading-tight">
+                      MeinBezirk<span className="text-fuchsia-400">.at</span>
+                    </p>
+                    <p className="text-sm text-zinc-400 mt-1">
+                      {language === 'de' ? 'Regionalportal AT' : 'regional portal AT'}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.section>

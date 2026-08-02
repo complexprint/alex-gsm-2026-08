@@ -3,9 +3,23 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { GraduationCap, MapPin, Calendar } from 'lucide-react';
 import { PageLayout, fadeUp } from '../components/PageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Education = () => {
   const { language, t } = useLanguage();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Ausbildung | Aleksei Bespechnyi — Bachelor Global Sales & Marketing, FH Steyr'
+        : 'Education | Aleksei Bespechnyi — Bachelor Global Sales & Marketing, FH Steyr',
+    description:
+      language === 'de'
+        ? 'Bachelor Global Sales & Marketing (100% Englisch) an der FH Oberösterreich, Campus Steyr. Auslandssemester Providence University Taiwan. HAK Oberwart mit Auszeichnung. Unternehmensprojekte mit voestalpine und Nimbuscloud.'
+        : 'Bachelor Global Sales & Marketing (fully English-taught) at FH Upper Austria, Steyr Campus. Exchange semester Providence University Taiwan. HAK Oberwart with distinction. Company projects with voestalpine and Nimbuscloud.',
+    canonical: 'https://alex-gsm.at/education',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
 
   const educationItems = [
     {
@@ -14,8 +28,8 @@ const Education = () => {
       date: t('edu1Date'),
       description:
         language === 'de'
-          ? 'Diplomarbeit „How AI can boost qualitative and quantitative research methodologies in B2B: The case of Voestalpine in the Railway Sector" — In meiner Diplomarbeit untersuche ich, wie Künstliche Intelligenz qualitative und quantitative Forschungsmethoden im B2B-Bereich verbessern kann – am konkreten Beispiel von voestalpine im Schienenverkehrssektor.'
-          : 'Thesis: "How AI can boost qualitative and quantitative research methodologies in B2B: The case of Voestalpine in the Railway Sector" — In my thesis, I examine how Artificial Intelligence can improve qualitative and quantitative research methodologies in B2B – using the concrete example of voestalpine in the railway sector.',
+          ? 'Studium vollständig auf Englisch, mit Schwerpunkt auf Business-Kommunikation und Präsentationsfähigkeiten. Ausgeprägte Up- und Cross-Selling-Fähigkeiten, die ich durch mehrere praxisnahe Unternehmensprojekte mit Partnern wie voestalpine und Nimbuscloud vertiefen konnte.\n\nIm Rahmen eines Unternehmensprojekts habe ich ein dynamisches Pricing-Modell für voestalpine mitentwickelt, das mittlerweile erfolgreich implementiert wurde. Für das Linzer Startup Nimbuscloud habe ich zudem ein neues Pricing-Modell sowie Gamification-Mechaniken mitentwickelt und analysiert.\n\nAbgerundet wird dies durch meine Diplomarbeit „How AI can boost qualitative and quantitative research methodologies in B2B: The case of Voestalpine in the Railway Sector" — eine Untersuchung, wie Künstliche Intelligenz qualitative und quantitative Forschungsmethoden im B2B-Bereich verbessern kann, am konkreten Beispiel von voestalpine im Schienenverkehrssektor.'
+          : 'Fully English-taught programme with a focus on business communication and presentation skills. Strong up- and cross-selling capabilities, deepened through several hands-on company projects with partners such as voestalpine and Nimbuscloud.\n\nWithin one company project I co-developed a dynamic pricing model for voestalpine that has since been successfully implemented. For the Linz-based startup Nimbuscloud I also co-designed and analysed a new pricing model as well as gamification mechanics.\n\nThis is rounded out by my bachelor thesis "How AI can boost qualitative and quantitative research methodologies in B2B: The case of Voestalpine in the Railway Sector" — an investigation into how Artificial Intelligence can improve qualitative and quantitative research methodologies in B2B, using the concrete example of voestalpine in the railway sector.',
     },
     { title: t('edu2Title'), location: t('edu2Location'), date: t('edu2Date') },
     { title: t('edu3Title'), location: t('edu3Location'), date: t('edu3Date') },
@@ -54,7 +68,7 @@ const Education = () => {
                   </span>
                 </div>
                 {item.description && (
-                  <p className="mt-5 pt-5 border-t border-white/10 text-zinc-400 text-sm leading-relaxed">
+                  <p className="mt-5 pt-5 border-t border-white/10 text-zinc-400 text-sm leading-relaxed whitespace-pre-line">
                     {item.description}
                   </p>
                 )}

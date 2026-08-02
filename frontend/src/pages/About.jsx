@@ -3,9 +3,24 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Sparkles } from 'lucide-react';
 import { PageLayout, fadeUp } from '../components/PageLayout';
+import useSEO from '../hooks/useSEO';
 
 const About = () => {
   const { language, t } = useLanguage();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Über mich | Aleksei Bespechnyi — Marketing Manager in Linz'
+        : 'About me | Aleksei Bespechnyi — Marketing Manager in Linz',
+    description:
+      language === 'de'
+        ? 'Seit dem 14. Lebensjahr in Österreich. Bachelor Global Sales & Marketing (FH Steyr), Auslandssemester in Taiwan. Österreichischer Rhetorik-Meister SAG\'S MULTI! 2020/21.'
+        : 'Living in Austria since age 14. Bachelor Global Sales & Marketing (FH Steyr), exchange semester in Taiwan. Austrian public speaking champion SAG\'S MULTI! 2020/21.',
+    canonical: 'https://alex-gsm.at/about',
+    type: 'profile',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
 
   const paragraphs = [t('aboutText1'), t('aboutText2'), t('aboutText3')];
 

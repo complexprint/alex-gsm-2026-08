@@ -3,9 +3,23 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
 import { PageLayout, fadeUp } from '../components/PageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Contact = () => {
   const { language, t } = useLanguage();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Kontakt | Aleksei Bespechnyi — Marketing Manager in Linz'
+        : 'Contact | Aleksei Bespechnyi — Marketing Manager in Linz',
+    description:
+      language === 'de'
+        ? 'Kontakt aufnehmen mit Aleksei Bespechnyi. E-Mail 7css77@gmail.com, +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote.'
+        : 'Get in touch with Aleksei Bespechnyi. Email 7css77@gmail.com, +43 681 81411499. Available in Linz, Steyr, Vienna, Salzburg or remote.',
+    canonical: 'https://alex-gsm.at/contact',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
 
   const contactInfo = [
     { icon: Phone, label: '+43 681 81411499', href: 'tel:+436818141149' },

@@ -3,9 +3,23 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Languages, Laptop, Award, Play } from 'lucide-react';
 import { PageLayout, fadeUp } from '../components/PageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Skills = () => {
   const { language, t } = useLanguage();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Kompetenzen | Aleksei Bespechnyi — Sprachen, Tools & Soft Skills'
+        : 'Skills | Aleksei Bespechnyi — Languages, Tools & Soft Skills',
+    description:
+      language === 'de'
+        ? '5 Sprachen: Russisch (Muttersprache), Deutsch C2, Englisch C1, Spanisch B2, Chinesisch HSK3. SAP MM/FI/SD, Excel fortgeschritten, Office 365. Upselling, interkulturelle Kommunikation, Rhetorik.'
+        : '5 languages: Russian (native), German C2, English C1, Spanish B2, Chinese HSK3. SAP MM/FI/SD, advanced Excel, Office 365. Upselling, intercultural communication, public speaking.',
+    canonical: 'https://alex-gsm.at/skills',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
 
   const skillCategories = [
     { title: t('skillsLanguages'), icon: Languages, skills: [t('langRussian'), t('langGerman'), t('langEnglish'), t('langSpanish'), t('langChinese')] },

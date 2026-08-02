@@ -12,6 +12,7 @@ import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import Trends from "./pages/Trends";
+import Publications from "./pages/Publications";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/trends" element={<Trends />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/publikationen" element={<Publications />} />
           </Routes>
         </Layout>
         <CookieBanner />

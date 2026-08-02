@@ -3,9 +3,23 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Briefcase, Building, Award, Rocket } from 'lucide-react';
 import { PageLayout, fadeUp } from '../components/PageLayout';
+import useSEO from '../hooks/useSEO';
 
 const Experience = () => {
   const { language, t } = useLanguage();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Erfahrung & Projekte | Aleksei Bespechnyi — Digital Marketing, Sales & XR'
+        : 'Experience & Projects | Aleksei Bespechnyi — Digital Marketing, Sales & XR',
+    description:
+      language === 'de'
+        ? 'Praktika bei Roll Out Innovation GmbH (partyboss.at) und NXRT GmbH in Wien. Upselling im Restaurant La Galeria, Junior Company HAK, Moonshot Bootcamp Wien, SAG\'S MULTI! Rhetorik-Meister.'
+        : 'Internships at Roll Out Innovation GmbH (partyboss.at) and NXRT GmbH Vienna. Upselling at La Galeria restaurant, Junior Company HAK, Vienna Moonshot Bootcamp, SAG\'S MULTI! public speaking champion.',
+    canonical: 'https://alex-gsm.at/experience',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
 
   const experiences = [
     { title: t('exp0Title'), company: t('exp0Company'), description: t('exp0Desc'), date: t('exp0Date'), icon: Rocket, isNew: true },

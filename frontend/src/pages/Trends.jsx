@@ -3,9 +3,23 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { TrendingUp, ExternalLink, Search, Filter, Clock, Newspaper } from 'lucide-react';
 import NavigationButtons from '../components/NavigationButtons';
+import useSEO from '../hooks/useSEO';
 
 const Trends = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  useSEO({
+    title:
+      language === 'de'
+        ? 'Marketing Trends | Aleksei Bespechnyi — SEO & Digital Marketing News'
+        : 'Marketing Trends | Aleksei Bespechnyi — SEO & Digital Marketing News',
+    description:
+      language === 'de'
+        ? 'Aktuelle Nachrichten und Insights aus der SEO- und Digital-Marketing-Branche. Automatische Aktualisierung zweimal täglich.'
+        : 'Latest news and insights from the SEO and digital marketing industry. Automatically updated twice daily.',
+    canonical: 'https://alex-gsm.at/trends',
+    locale: language === 'de' ? 'de_AT' : 'en_US',
+  });
   const [news, setNews] = useState([]);
   const [filteredNews, setFilteredNews] = useState([]);
   const [sources, setSources] = useState([]);
