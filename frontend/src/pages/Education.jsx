@@ -11,11 +11,11 @@ const Education = () => {
   useSEO({
     title:
       language === 'de'
-        ? 'Ausbildung | Aleksei Bespechnyi — Bachelor Global Sales & Marketing, FH Steyr'
+        ? 'Ausbildung | Aleksei Bespechnyi — Bachelor GSM, FH Steyr'
         : 'Education | Aleksei Bespechnyi — Bachelor Global Sales & Marketing, FH Steyr',
     description:
       language === 'de'
-        ? 'Bachelor Global Sales & Marketing (100% Englisch) an der FH Oberösterreich, Campus Steyr. Auslandssemester Providence University Taiwan. HAK Oberwart mit Auszeichnung. Unternehmensprojekte mit voestalpine und Nimbuscloud.'
+        ? 'Bachelor Global Sales & Marketing an der FH OÖ Campus Steyr (Englisch), Auslandssemester Providence University Taiwan, HAK Oberwart mit Auszeichnung.'
         : 'Bachelor Global Sales & Marketing (fully English-taught) at FH Upper Austria, Steyr Campus. Exchange semester Providence University Taiwan. HAK Oberwart with distinction. Company projects with voestalpine and Nimbuscloud.',
     canonical: 'https://alex-gsm.at/education',
     locale: language === 'de' ? 'de_AT' : 'en_US',

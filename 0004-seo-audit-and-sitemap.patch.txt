@@ -1,0 +1,881 @@
+From 548d8c7f26722e140b0c362b130a0edff6e38cda Mon Sep 17 00:00:00 2001
+From: Lovable <bot@lovable.dev>
+Date: Sat, 7 Nov 2026 18:01:27 +0000
+Subject: [PATCH] feat(seo): add sitemap generator, SEO audit script and
+ optimize meta tags lengths
+
+---
+ frontend/package.json                 |   4 +-
+ frontend/public/sitemap.xml           | 101 +++++++++++---
+ frontend/scripts/generate-sitemap.mjs | 188 ++++++++++++++++++++++++++
+ frontend/scripts/seo-audit.mjs        | 140 +++++++++++++++++++
+ frontend/scripts/update-site.sh       |  16 +++
+ frontend/src/data/articles.js         |  44 ++++--
+ frontend/src/data/seoMeta.js          |  41 ++++++
+ frontend/src/pages/ArticleDetail.jsx  |  18 +--
+ frontend/src/pages/Education.jsx      |   4 +-
+ frontend/src/pages/Experience.jsx     |   4 +-
+ frontend/src/pages/Home.jsx           |   6 +-
+ frontend/src/pages/Publications.jsx   |   2 +-
+ frontend/src/pages/Skills.jsx         |   4 +-
+ frontend/src/pages/Trends.jsx         |   4 +-
+ 14 files changed, 528 insertions(+), 48 deletions(-)
+ create mode 100755 frontend/scripts/generate-sitemap.mjs
+ create mode 100755 frontend/scripts/seo-audit.mjs
+ create mode 100755 frontend/scripts/update-site.sh
+ create mode 100644 frontend/src/data/seoMeta.js
+
+diff --git a/frontend/package.json b/frontend/package.json
+index 601a919..b2deec3 100755
+--- a/frontend/package.json
++++ b/frontend/package.json
+@@ -61,7 +61,9 @@
+     "build": "craco build",
+     "test": "craco test",
+     "prerender": "node scripts/prerender.mjs",
+-    "postbuild": "node scripts/prerender.mjs"
++    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/prerender.mjs && node scripts/seo-audit.mjs",
++    "sitemap": "node scripts/generate-sitemap.mjs",
++    "seo:audit": "node scripts/seo-audit.mjs"
+   },
+   "browserslist": {
+     "production": [
+diff --git a/frontend/public/sitemap.xml b/frontend/public/sitemap.xml
+index 3b52822..d82490d 100755
+--- a/frontend/public/sitemap.xml
++++ b/frontend/public/sitemap.xml
+@@ -1,83 +1,152 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+-  <!-- Home Page -->
+   <url>
+     <loc>https://alex-gsm.at/</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>1.0</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/" />
+   </url>
+ 
+-  <!-- About Page -->
+   <url>
+     <loc>https://alex-gsm.at/about</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/about" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/about" />
+   </url>
+ 
+-  <!-- Education Page -->
+   <url>
+     <loc>https://alex-gsm.at/education</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/education" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/education" />
+   </url>
+ 
+-  <!-- Experience Page -->
+   <url>
+     <loc>https://alex-gsm.at/experience</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/experience" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/experience" />
+   </url>
+ 
+-  <!-- Skills Page -->
+   <url>
+     <loc>https://alex-gsm.at/skills</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.8</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/skills" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/skills" />
+   </url>
+ 
+-  <!-- Publications Page (NEW) -->
+   <url>
+     <loc>https://alex-gsm.at/publications</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>weekly</changefreq>
+     <priority>0.9</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/publications" />
+   </url>
+ 
+-  <!-- Trends Page -->
+   <url>
+     <loc>https://alex-gsm.at/trends</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>daily</changefreq>
+     <priority>0.7</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/trends" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/trends" />
+   </url>
+ 
+-  <!-- Contact Page -->
+   <url>
+     <loc>https://alex-gsm.at/contact</loc>
+-    <lastmod>2026-07-11</lastmod>
++    <lastmod>2026-11-07</lastmod>
+     <changefreq>monthly</changefreq>
+     <priority>0.9</priority>
+     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/contact" />
+     <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/contact" />
+   </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/wm-linz-gastro</loc>
++    <lastmod>2026-07-11</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/lask-liverpool</loc>
++    <lastmod>2026-09-08</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/linz-hitze</loc>
++    <lastmod>2026-08-08</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/larin-catenaccio</loc>
++    <lastmod>2026-06-13</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/partybus</loc>
++    <lastmod>2026-04-06</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/drogen-razzia</loc>
++    <lastmod>2026-03-25</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/jku-spartipps</loc>
++    <lastmod>2026-02-01</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/gruener-stahl</loc>
++    <lastmod>2026-01-25</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/jobportal-chaos</loc>
++    <lastmod>2026-01-16</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/winterradeln</loc>
++    <lastmod>2026-01-10</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
++
++  <url>
++    <loc>https://alex-gsm.at/publications/linz-steyr-pendeln</loc>
++    <lastmod>2026-01-08</lastmod>
++    <changefreq>monthly</changefreq>
++    <priority>0.8</priority>
++  </url>
+ </urlset>
+diff --git a/frontend/scripts/generate-sitemap.mjs b/frontend/scripts/generate-sitemap.mjs
+new file mode 100755
+index 0000000..4a07b22
+--- /dev/null
++++ b/frontend/scripts/generate-sitemap.mjs
+@@ -0,0 +1,188 @@
++#!/usr/bin/env node
++/**
++ * Генерация sitemap.xml на основе реального времени изменения файлов/статей.
++ *
++ * Запускается:
++ *   - Вручную: `node scripts/generate-sitemap.mjs`
++ *   - Автоматически в postbuild (до или после prerender)
++ *
++ * Что делает:
++ *   1. Для каждой основной страницы (/about, /skills и т.д.) находит
++ *      дату последнего коммита соответствующего JSX-файла через git log.
++ *   2. Для каждой статьи (/publications/:slug) берёт дату из статьи
++ *      или дату коммита/изменения.
++ *   3. Записывает sitemap.xml в public/sitemap.xml (и в build/sitemap.xml, если build/ существует).
++ */
++import fs from 'node:fs';
++import path from 'node:path';
++import { execSync } from 'node:child_process';
++import { fileURLToPath } from 'node:url';
++import { articleSlugs } from './routes.mjs';
++
++const __dirname = path.dirname(fileURLToPath(import.meta.url));
++const ROOT = path.resolve(__dirname, '..');
++const PUBLIC_DIR = path.join(ROOT, 'public');
++const BUILD_DIR = path.join(ROOT, 'build');
++const BASE_URL = 'https://alex-gsm.at';
++
++function getGitLastmod(relPath) {
++  try {
++    const fullPath = path.join(ROOT, relPath);
++    if (!fs.existsSync(fullPath)) return null;
++    const out = execSync(`git log -1 --format=%cI -- "${fullPath}"`, {
++      cwd: ROOT,
++      encoding: 'utf8',
++    }).trim();
++    if (out) return out.split('T')[0];
++  } catch {
++    /* fallback to file mtime */
++  }
++  try {
++    const fullPath = path.join(ROOT, relPath);
++    const stat = fs.statSync(fullPath);
++    return stat.mtime.toISOString().split('T')[0];
++  } catch {
++    return new Date().toISOString().split('T')[0];
++  }
++}
++
++// Загружаем данные статей
++const articlesFile = path.join(ROOT, 'src', 'data', 'articles.js');
++let articles = [];
++try {
++  const content = fs.readFileSync(articlesFile, 'utf8');
++  const jsonMatch = content.match(/export const articles = (\[[\s\S]*?\]);/);
++  if (jsonMatch) {
++    articles = JSON.parse(jsonMatch[1]);
++  }
++} catch (e) {
++  console.warn('Could not parse articles.js:', e.message);
++}
++
++const articleDateMap = new Map();
++articles.forEach((a) => {
++  // a.date format: "11.07.2026" -> "2026-07-11"
++  let isoDate = null;
++  if (a.date && /^\d{2}\.\d{2}\.\d{4}$/.test(a.date)) {
++    const [day, month, year] = a.date.split('.');
++    isoDate = `${year}-${month}-${day}`;
++  }
++  articleDateMap.set(a.id, isoDate);
++});
++
++// Маппинг страниц на исходные файлы для получения точной даты изменения
++const staticPages = [
++  {
++    path: '/',
++    file: 'src/pages/Home.jsx',
++    priority: '1.0',
++    changefreq: 'weekly',
++  },
++  {
++    path: '/about',
++    file: 'src/pages/About.jsx',
++    priority: '0.8',
++    changefreq: 'monthly',
++  },
++  {
++    path: '/education',
++    file: 'src/pages/Education.jsx',
++    priority: '0.8',
++    changefreq: 'monthly',
++  },
++  {
++    path: '/experience',
++    file: 'src/pages/Experience.jsx',
++    priority: '0.8',
++    changefreq: 'monthly',
++  },
++  {
++    path: '/skills',
++    file: 'src/pages/Skills.jsx',
++    priority: '0.8',
++    changefreq: 'monthly',
++  },
++  {
++    path: '/publications',
++    file: 'src/pages/Publications.jsx',
++    priority: '0.9',
++    changefreq: 'weekly',
++  },
++  {
++    path: '/trends',
++    file: 'src/pages/Trends.jsx',
++    priority: '0.7',
++    changefreq: 'daily',
++  },
++  {
++    path: '/contact',
++    file: 'src/pages/Contact.jsx',
++    priority: '0.9',
++    changefreq: 'monthly',
++  },
++];
++
++const today = new Date().toISOString().split('T')[0];
++
++const urls = [];
++
++// Добавляем статические страницы
++for (const p of staticPages) {
++  const lastmod = getGitLastmod(p.file) || today;
++  urls.push({
++    loc: `${BASE_URL}${p.path === '/' ? '/' : p.path}`,
++    lastmod,
++    changefreq: p.changefreq,
++    priority: p.priority,
++    hasAlternates: true,
++  });
++}
++
++// Добавляем страницы статей
++const articlesLastmod = getGitLastmod('src/data/articles.js') || today;
++
++for (const slug of articleSlugs) {
++  const articleDate = articleDateMap.get(slug) || articlesLastmod;
++  urls.push({
++    loc: `${BASE_URL}/publications/${slug}`,
++    lastmod: articleDate,
++    changefreq: 'monthly',
++    priority: '0.8',
++    hasAlternates: false,
++  });
++}
++
++// Формируем XML
++let xml = `<?xml version="1.0" encoding="UTF-8"?>
++<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
++        xmlns:xhtml="http://www.w3.org/1999/xhtml">
++`;
++
++for (const u of urls) {
++  xml += `  <url>
++    <loc>${u.loc}</loc>
++    <lastmod>${u.lastmod}</lastmod>
++    <changefreq>${u.changefreq}</changefreq>
++    <priority>${u.priority}</priority>
++`;
++  if (u.hasAlternates) {
++    xml += `    <xhtml:link rel="alternate" hreflang="de" href="${u.loc}" />
++    <xhtml:link rel="alternate" hreflang="en" href="${u.loc}" />
++`;
++  }
++  xml += `  </url>\n\n`;
++}
++
++xml = xml.trimEnd() + '\n</urlset>\n';
++
++// Записываем в public/sitemap.xml
++const publicSitemap = path.join(PUBLIC_DIR, 'sitemap.xml');
++fs.writeFileSync(publicSitemap, xml, 'utf8');
++console.log(`✓ sitemap.xml обновлён в public/sitemap.xml (${urls.length} URLs)`);
++
++// Если существует build/, записываем и туда
++if (fs.existsSync(BUILD_DIR)) {
++  const buildSitemap = path.join(BUILD_DIR, 'sitemap.xml');
++  fs.writeFileSync(buildSitemap, xml, 'utf8');
++  console.log(`✓ sitemap.xml обновлён в build/sitemap.xml`);
++}
+diff --git a/frontend/scripts/seo-audit.mjs b/frontend/scripts/seo-audit.mjs
+new file mode 100755
+index 0000000..2500896
+--- /dev/null
++++ b/frontend/scripts/seo-audit.mjs
+@@ -0,0 +1,140 @@
++#!/usr/bin/env node
++/**
++ * SEO-аудит длины и уникальности <title> и <meta name="description">.
++ *
++ * Запускается автоматически в postbuild (после пререндера) — проверяет
++ * итоговый HTML в build/. Можно запускать вручную: `node scripts/seo-audit.mjs`
++ * (если build/ нет — проверяет исходники: src/data/seoMeta.js и articles.js).
++ *
++ * Правила: title ≤ 70 символов; description 25–160; без дублей.
++ * При нарушениях выходит с кодом 1 (ломает сборку).
++ */
++import fs from 'fs';
++import path from 'path';
++import { fileURLToPath } from 'url';
++
++const __dirname = path.dirname(fileURLToPath(import.meta.url));
++const ROOT = path.resolve(__dirname, '..');
++const BUILD = path.join(ROOT, 'build');
++
++const TITLE_MAX = 70;
++const DESC_MIN = 25;
++const DESC_MAX = 160;
++
++const problems = [];
++const titles = {};
++const descs = {};
++
++function check(id, title, description, { noindex = false } = {}) {
++  if (!title) problems.push(`[${id}] нет <title>`);
++  else if (title.length > TITLE_MAX)
++    problems.push(`[${id}] title ${title.length}>${TITLE_MAX}: ${title}`);
++
++  if (!description) problems.push(`[${id}] нет meta description`);
++  else if (description.length < DESC_MIN || description.length > DESC_MAX)
++    problems.push(
++      `[${id}] description ${description.length} вне ${DESC_MIN}–${DESC_MAX}: ${description}`
++    );
++
++  // дубли (служебные noindex-страницы, напр. 404, не учитываем)
++  if (!noindex) {
++    if (title) (titles[title] = titles[title] || []).push(id);
++    if (description) (descs[description] = descs[description] || []).push(id);
++  }
++}
++
++function walk(dir, filter) {
++  let out = [];
++  for (const name of fs.readdirSync(dir)) {
++    const p = path.join(dir, name);
++    const st = fs.statSync(p);
++    if (st.isDirectory()) out = out.concat(walk(p, filter));
++    else if (filter(p)) out.push(p);
++  }
++  return out;
++}
++
++// Декодирование распространенных HTML сущностей (&amp; -> &) для честной длины
++function decodeHtmlEntities(str) {
++  if (!str) return str;
++  return str
++    .replace(/&amp;/g, '&')
++    .replace(/&lt;/g, '<')
++    .replace(/&gt;/g, '>')
++    .replace(/&quot;/g, '"')
++    .replace(/&#39;/g, "'")
++    .replace(/&nbsp;/g, ' ');
++}
++
++let mode;
++if (fs.existsSync(BUILD)) {
++  mode = 'build HTML';
++  const files = walk(BUILD, (p) => p.endsWith('index.html'));
++  for (const file of files) {
++    const html = fs.readFileSync(file, 'utf8');
++    const t = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
++    const d = html.match(
++      /<meta[^>]*name=["']description["'][^>]*content=["']([\s\S]*?)["'][^>]*>/i
++    );
++    const url =
++      '/' +
++      path
++        .relative(BUILD, file)
++        .replace(/index\.html$/, '')
++        .replace(/\/$/, '');
++    const noindex = /name=["']robots["'][^>]*noindex/i.test(html);
++
++    // /publikationen/* являются каноническими алиасами на /publications/*
++    // и делят единый title/description, поэтому исключаем их из проверки дублирования
++    const isAlias = url.startsWith('/publikationen');
++
++    const cleanTitle = t ? decodeHtmlEntities(t[1].trim()) : null;
++    const cleanDesc = d ? decodeHtmlEntities(d[1].trim()) : null;
++
++    check(url || '/', cleanTitle, cleanDesc, { noindex: noindex || isAlias });
++  }
++} else {
++  mode = 'source (build/ не найден)';
++
++  // seoMeta.js
++  const seoPath = path.join(ROOT, 'src/data/seoMeta.js');
++  if (fs.existsSync(seoPath)) {
++    const seoSrc = fs.readFileSync(seoPath, 'utf8');
++    const re =
++      /"(\/[^"]*)":\s*\{\s*\n?\s*title:\s*\n?\s*"((?:[^"\\]|\\.)*)",\s*\n?\s*description:\s*\n?\s*"((?:[^"\\]|\\.)*)"/g;
++    let m;
++    while ((m = re.exec(seoSrc)) !== null) {
++      check(m[1], m[2], m[3], { noindex: m[1] === '/404' });
++    }
++  }
++
++  // articles.js
++  const artPath = path.join(ROOT, 'src/data/articles.js');
++  if (fs.existsSync(artPath)) {
++    const artSrc = fs.readFileSync(artPath, 'utf8');
++    const reA =
++      /"slug":\s*"([^"]+)"[\s\S]*?"seoTitle":\s*"((?:[^"\\]|\\.)*)"[\s\S]*?"seoDescription":\s*"((?:[^"\\]|\\.)*)"/g;
++    let m;
++    while ((m = reA.exec(artSrc)) !== null) {
++      check('article:' + m[1], m[2], m[3]);
++    }
++  }
++}
++
++for (const [t, ids] of Object.entries(titles)) {
++  if (ids.length > 1) problems.push(`Дубль title у ${ids.join(', ')}: ${t}`);
++}
++for (const [d, ids] of Object.entries(descs)) {
++  if (ids.length > 1) problems.push(`Дубль description у ${ids.join(', ')}: ${d}`);
++}
++
++console.log(`\nSEO-аудит (${mode}):`);
++if (problems.length === 0) {
++  console.log('✅ Все title ≤70, description 25–160, дублей нет.\n');
++  process.exit(0);
++} else {
++  console.log(`❌ Найдено проблем: ${problems.length}`);
++  for (const p of problems) console.log('  • ' + p);
++  console.log('');
++  process.exit(1);
++}
+diff --git a/frontend/scripts/update-site.sh b/frontend/scripts/update-site.sh
+new file mode 100755
+index 0000000..45c413f
+--- /dev/null
++++ b/frontend/scripts/update-site.sh
+@@ -0,0 +1,16 @@
++#!/usr/bin/env bash
++set -e
++
++echo "=== 1. Building React app ==="
++CI=false npm run build
++
++echo "=== 2. Generating dynamic sitemap ==="
++npm run sitemap
++
++echo "=== 3. Prerendering all routes ==="
++npm run prerender
++
++echo "=== 4. Running SEO audit ==="
++npm run seo:audit
++
++echo "=== All checks and builds completed successfully! ==="
+diff --git a/frontend/src/data/articles.js b/frontend/src/data/articles.js
+index 83c57df..bf0efad 100644
+--- a/frontend/src/data/articles.js
++++ b/frontend/src/data/articles.js
+@@ -81,7 +81,9 @@ export const articles = [
+         "type": "p",
+         "text": "Die einen Wirte machen selbst eine WM ohne österreichische Beteiligung zum Umsatzturbo. Die anderen sitzen da und warten, dass der Braten vom Himmel fällt und ihnen eigenhändig das Bier einschenkt. Wird nicht passieren. Die Viertelfinals laufen. Es ist noch nicht zu spät. Aber die Uhr tickt."
+       }
+-    ]
++    ],
++    "seoTitle": "Wie Linzer Gastronomen WM-Umsatz liegen lassen | Aleksei Bespechnyi",
++    "seoDescription": "Die WM 2026 läuft auf Hochtouren – doch während manche Lokale voll durchstarten, verhalten sich andere wie ein rostiges Fahrrad am Linzer Hauptbahnhof."
+   },
+   {
+     "id": "lask-liverpool",
+@@ -305,7 +307,9 @@ export const articles = [
+         "type": "p",
+         "text": "Und mit diesem Knall: gute Nacht."
+       }
+-    ]
++    ],
++    "seoTitle": "LASK vs. Liverpool: Fan-Power in Linz | Aleksei Bespechnyi",
++    "seoDescription": "Vier europäische Fußballabende mit Fans aus Liverpool, Porto, Istanbul und Bratislava: Wie Linz von der internationalen Fan-Invasion profitieren kann."
+   },
+   {
+     "id": "linz-hitze",
+@@ -385,7 +389,9 @@ export const articles = [
+         "src": "/articles/linz-hitze/image_4.webp",
+         "caption": "\"Man kann es kaum erwarten, bis der rettende Regen endlich kommt!\""
+       }
+-    ]
++    ],
++    "seoTitle": "Hitze in Linz: Warum wir Klimaanlagen brauchen | Aleksei Bespechnyi",
++    "seoDescription": "Wie ich lernte, die österreichische Hitzetoleranz zu hassen und warum der Staat endlich für Klimaanlagen zahlen sollte, bevor wir alle zu Gulasch werden."
+   },
+   {
+     "id": "larin-catenaccio",
+@@ -463,7 +469,9 @@ export const articles = [
+         "type": "p",
+         "text": "Mehr dazu und praktische Strategien zur Gestaltung Ihres Geschäftsumfelds finden Sie auf meiner Webseite. Ich unterstütze Unternehmen dabei, Sichtbarkeit zu erhöhen, Leads zu generieren und Aufmerksamkeit in nachhaltigen Umsatz zu verwandeln."
+       }
+-    ]
++    ],
++    "seoTitle": "Larin vs. Catenaccio: Duell der Spielkulturen | Aleksei Bespechnyi",
++    "seoDescription": "Die Konfrontation zweier Fußballwelten bei der WM 2026 zwischen Kanada und Bosnien-Herzegowina: Ein Duell, das mehr zeigt als nur das reine Spielergebnis."
+   },
+   {
+     "id": "partybus",
+@@ -629,7 +637,9 @@ export const articles = [
+         "type": "h2",
+         "text": "Prost und guade Fohrt!"
+       }
+-    ]
++    ],
++    "seoTitle": "Warum Österreicher jetzt im Bus feiern | Aleksei Bespechnyi",
++    "seoDescription": "Der neue Trend in Österreich heißt Partybus mieten – eine fahrende Event-Location ganz ohne lästige Nachbarn und überteuerte Restaurant-Rechnungen."
+   },
+   {
+     "id": "drogen-razzia",
+@@ -695,7 +705,9 @@ export const articles = [
+         "src": "/articles/drogen-razzia/image_3.webp",
+         "caption": ""
+       }
+-    ]
++    ],
++    "seoTitle": "85 Festnahmen: Linzer Drogen-Razzia im Alltag | Aleksei Bespechnyi",
++    "seoDescription": "Eine satirische Reportage über die Großrazzia in Oberösterreich und den täglichen Spagat zwischen Kaffeeproblem und Drogenalltag am Linzer Hauptbahnhof."
+   },
+   {
+     "id": "jku-spartipps",
+@@ -761,7 +773,9 @@ export const articles = [
+         "type": "p",
+         "text": "Fazit: Linz holt keine Michelin-Sterne, aber du kannst dich hier wie ein Boss für kleines Geld satt essen. Bauch füllen, Schnickschnack skippen, ein weiteres Semester überstehen. Jetzt ab zu den Vorlesungen, bevor du zum echten Zombie wirst."
+       }
+-    ]
++    ],
++    "seoTitle": "Essen in Linz: Spartipps für JKU-Studenten | Aleksei Bespechnyi",
++    "seoDescription": "Von der Uni-Mensa bis zu günstigen Alternativen: Ein ehrlicher Guide für JKU-Studierende, um in Linz gut und preiswert durch den Tag zu kommen."
+   },
+   {
+     "id": "gruener-stahl",
+@@ -807,7 +821,9 @@ export const articles = [
+         "src": "/articles/gruener-stahl/image_3.webp",
+         "caption": "Von einem Studentenblick: Das Ganze ist teuer und wahrscheinlich unvermeidbar. Aber wenigstens versucht jemand, nicht einfach weiter Kohle zu verbrennen wie in den 80ern. Ob’s klappt? Keine Ahnung. Aber wenn nicht, rollen wir bald alle in Elektrokarren aus chinesischem Blech."
+       }
+-    ]
++    ],
++    "seoTitle": "Grüner Stahl: Voestalpiens riskante Rettung? | Aleksei Bespechnyi",
++    "seoDescription": "Während Autohersteller sparen und Billigstahl drückt, investiert voestalpine 1,5 Milliarden in grünen Wasserstoff. Ein Blick auf die Zukunftsstrategie."
+   },
+   {
+     "id": "jobportal-chaos",
+@@ -865,7 +881,9 @@ export const articles = [
+           "Gibt’s irgendeine versteckte Regel, die das verhindert, oder warten alle nur darauf, dass endlich wer den ersten Schritt macht?​Weil ganz ehrlich: Pflichtpraktikum hin oder her - es wär nett, wenn man auf dem Weg dorthin nicht jedes Mal das Gefühl hätte, man radelt ohne Licht, ohne Helm und ohne Nerven durch einen Schneesturm aus Formularen."
+         ]
+       }
+-    ]
++    ],
++    "seoTitle": "Jobportal-Chaos: Ein Student über Bewerbungen | Aleksei Bespechnyi",
++    "seoDescription": "Jobsuche in Österreich: Von Formular-Hölle bis One-Click-Lösung. Warum Bewerbungen oft wie Radfahren bei Schneesturm wirken und was sich ändern muss."
+   },
+   {
+     "id": "winterradeln",
+@@ -927,7 +945,9 @@ export const articles = [
+         "type": "p",
+         "text": "Ehrlich gesagt, durch den Schnee fahrradzufahren ist sinnlos. Aber der Vibe? Elektrisierend. Wenn dir todlangweilig ist und du ein paar lustige Ausrutscher suchst, probier's aus. Ansonsten bleib bei etwas Vernünftigem, denn die Krankenwagen und ihre Helikopter-Kumpels surrten den ganzen Tag herum wie wütende Wespen, und die haben genug zu tun, ohne dass deine gefrorene Leiche dazukommt."
+       }
+-    ]
++    ],
++    "seoTitle": "Winterradeln in Linz: Abenteuer im Schneechaos | Aleksei Bespechnyi",
++    "seoDescription": "Ein Tag im tief verschneiten Linz: Fahrrad-Abenteuer trotz Rekord-Schneefall, eisiger Straßen und überraschter Radfahrer auf Oberösterreichs Radwegen."
+   },
+   {
+     "id": "linz-steyr-pendeln",
+@@ -976,6 +996,8 @@ export const articles = [
+         "type": "p",
+         "text": "Trotz gelegentlicher Bahn-„Fakapss“ bleibt Linz für mich der perfekte Ort, wenn es um neue Kontakte, Netzwerke und spontane Aktivitäten geht. Man hat das Gefühl, dass hier immer etwas passiert, während Steyr eher für die ruhigen Momente da ist - zum Durchatmen, Lernen und für Spaziergänge durch die Altstadt."
+       }
+-    ]
++    ],
++    "seoTitle": "Studentenleben zwischen Linz und Steyr: Pendeln | Aleksei Bespechnyi",
++    "seoDescription": "Zwei unterschiedliche Welten: Schneller Stadt-Rhythmus in Linz und historischer Charme in Steyr. Der Pendel-Alltag eines GSM-Studenten an der FH OÖ."
+   }
+ ];
+diff --git a/frontend/src/data/seoMeta.js b/frontend/src/data/seoMeta.js
+new file mode 100644
+index 0000000..3ab6bb0
+--- /dev/null
++++ b/frontend/src/data/seoMeta.js
+@@ -0,0 +1,41 @@
++/**
++ * SEO метаданные основных страниц сайта alex-gsm.at
++ *
++ * Все title <= 70 символов.
++ * Все description от 25 до 160 символов.
++ * Все уникальны (без дубликатов).
++ */
++export const seoMeta = {
++  "/": {
++    title: "Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales",
++    description: "Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Social-Reichweite, +124% Traffic. Bachelor GSM (FH Steyr). Autor bei MeinBezirk.at."
++  },
++  "/about": {
++    title: "Über mich | Aleksei Bespechnyi — Marketing Manager in Linz",
++    description: "Seit dem 14. Lebensjahr in Österreich. Bachelor Global Sales & Marketing (FH Steyr), Auslandssemester Taiwan. Rhetorik-Meister SAG'S MULTI! 2020/21."
++  },
++  "/education": {
++    title: "Ausbildung | Aleksei Bespechnyi — Bachelor GSM, FH Steyr",
++    description: "Bachelor Global Sales & Marketing an der FH OÖ Campus Steyr (Englisch), Auslandssemester Providence University Taiwan, HAK Oberwart mit Auszeichnung."
++  },
++  "/experience": {
++    title: "Erfahrung & Projekte | Aleksei Bespechnyi — Marketing & Sales",
++    description: "Praktika bei Roll Out Innovation (partyboss.at) und NXRT Wien. Upselling La Galeria, Junior Company HAK, Moonshot Bootcamp, SAG'S MULTI! Rhetorik-Sieger."
++  },
++  "/skills": {
++    title: "Kompetenzen | Aleksei Bespechnyi — Sprachen, Tools & Skills",
++    description: "5 Sprachen: Russisch, Deutsch C2, Englisch C1, Spanisch B2, Chinesisch HSK3. SAP MM/FI/SD, Excel fortgeschritten, Office 365, Rhetorik & Upselling."
++  },
++  "/trends": {
++    title: "Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News",
++    description: "Aktuelle Nachrichten und Insights aus der SEO- und Digital-Marketing-Branche. Automatische Aktualisierung zweimal täglich."
++  },
++  "/publications": {
++    title: "Publikationen | Aleksei Bespechnyi — MeinBezirk.at Autor",
++    description: "Alle 11 Gastbeiträge von Aleksei Bespechnyi auf MeinBezirk.at zu Linz, Steyr, OÖ, Studentenleben, Digital Marketing, Gastronomie und Kultur. 27.000+ Leser."
++  },
++  "/contact": {
++    title: "Kontakt | Aleksei Bespechnyi — Marketing Manager in Linz",
++    description: "Kontakt aufnehmen mit Aleksei Bespechnyi: E-Mail 7css77@gmail.com, Telefon +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote."
++  }
++};
+diff --git a/frontend/src/pages/ArticleDetail.jsx b/frontend/src/pages/ArticleDetail.jsx
+index a20cb2a..09e3062 100644
+--- a/frontend/src/pages/ArticleDetail.jsx
++++ b/frontend/src/pages/ArticleDetail.jsx
+@@ -49,14 +49,16 @@ const ArticleDetail = () => {
+     }
+   };
+ 
+-  const seoTitle = article
+-    ? `${article.kicker}: ${article.title} | Aleksei Bespechnyi`
+-    : 'Artikel | Aleksei Bespechnyi';
+-  const seoDescription = article
+-    ? language === 'de'
+-      ? article.excerpt
+-      : article.excerptEn
+-    : '';
++  const seoTitle =
++    article?.seoTitle ||
++    (article
++      ? `${article.kicker}: ${article.title} | Aleksei Bespechnyi`
++      : 'Artikel | Aleksei Bespechnyi');
++  const seoDescription =
++    (language === 'de' && article?.seoDescription) ||
++    (article
++      ? (language === 'de' ? article.excerpt : article.excerptEn)
++      : '');
+ 
+   const jsonLd = article
+     ? {
+diff --git a/frontend/src/pages/Education.jsx b/frontend/src/pages/Education.jsx
+index 3a44dbd..fb4f6ee 100755
+--- a/frontend/src/pages/Education.jsx
++++ b/frontend/src/pages/Education.jsx
+@@ -11,11 +11,11 @@ const Education = () => {
+   useSEO({
+     title:
+       language === 'de'
+-        ? 'Ausbildung | Aleksei Bespechnyi — Bachelor Global Sales & Marketing, FH Steyr'
++        ? 'Ausbildung | Aleksei Bespechnyi — Bachelor GSM, FH Steyr'
+         : 'Education | Aleksei Bespechnyi — Bachelor Global Sales & Marketing, FH Steyr',
+     description:
+       language === 'de'
+-        ? 'Bachelor Global Sales & Marketing (100% Englisch) an der FH Oberösterreich, Campus Steyr. Auslandssemester Providence University Taiwan. HAK Oberwart mit Auszeichnung. Unternehmensprojekte mit voestalpine und Nimbuscloud.'
++        ? 'Bachelor Global Sales & Marketing an der FH OÖ Campus Steyr (Englisch), Auslandssemester Providence University Taiwan, HAK Oberwart mit Auszeichnung.'
+         : 'Bachelor Global Sales & Marketing (fully English-taught) at FH Upper Austria, Steyr Campus. Exchange semester Providence University Taiwan. HAK Oberwart with distinction. Company projects with voestalpine and Nimbuscloud.',
+     canonical: 'https://alex-gsm.at/education',
+     locale: language === 'de' ? 'de_AT' : 'en_US',
+diff --git a/frontend/src/pages/Experience.jsx b/frontend/src/pages/Experience.jsx
+index ecb0c98..fc67c2c 100755
+--- a/frontend/src/pages/Experience.jsx
++++ b/frontend/src/pages/Experience.jsx
+@@ -11,11 +11,11 @@ const Experience = () => {
+   useSEO({
+     title:
+       language === 'de'
+-        ? 'Erfahrung & Projekte | Aleksei Bespechnyi — Digital Marketing, Sales & XR'
++        ? 'Erfahrung & Projekte | Aleksei Bespechnyi — Marketing & Sales'
+         : 'Experience & Projects | Aleksei Bespechnyi — Digital Marketing, Sales & XR',
+     description:
+       language === 'de'
+-        ? 'Praktika bei Roll Out Innovation GmbH (partyboss.at) und NXRT GmbH in Wien. Upselling im Restaurant La Galeria, Junior Company HAK, Moonshot Bootcamp Wien, SAG\'S MULTI! Rhetorik-Meister.'
++        ? 'Praktika bei Roll Out Innovation (partyboss.at) und NXRT Wien. Upselling La Galeria, Junior Company HAK, Moonshot Bootcamp, SAG\'S MULTI! Rhetorik-Sieger.'
+         : 'Internships at Roll Out Innovation GmbH (partyboss.at) and NXRT GmbH Vienna. Upselling at La Galeria restaurant, Junior Company HAK, Vienna Moonshot Bootcamp, SAG\'S MULTI! public speaking champion.',
+     canonical: 'https://alex-gsm.at/experience',
+     locale: language === 'de' ? 'de_AT' : 'en_US',
+diff --git a/frontend/src/pages/Home.jsx b/frontend/src/pages/Home.jsx
+index 2e6c26e..028d11c 100755
+--- a/frontend/src/pages/Home.jsx
++++ b/frontend/src/pages/Home.jsx
+@@ -40,11 +40,11 @@ const Home = () => {
+   useSEO({
+     title:
+       language === 'de'
+-        ? 'Aleksei Bespechnyi — Marketing Manager | Digital Marketing & Sales | alex-gsm.at'
+-        : 'Aleksei Bespechnyi — Marketing Manager | Digital Marketing & Sales | alex-gsm.at',
++        ? 'Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales'
++        : 'Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales',
+     description:
+       language === 'de'
+-        ? 'Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Organic Social Reichweite, +124% Organic Search Traffic. Bachelor Global Sales & Marketing (FH Steyr). Autor bei MeinBezirk.at.'
++        ? 'Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Social-Reichweite, +124% Traffic. Bachelor GSM (FH Steyr). Autor bei MeinBezirk.at.'
+         : 'Marketing Manager with hands-on experience at Roll Out Innovation GmbH. +496% Organic Social reach, +124% Organic Search traffic. Bachelor Global Sales & Marketing (FH Steyr). Contributor at MeinBezirk.at.',
+     canonical: 'https://alex-gsm.at/',
+     locale: language === 'de' ? 'de_AT' : 'en_US',
+diff --git a/frontend/src/pages/Publications.jsx b/frontend/src/pages/Publications.jsx
+index 00ae366..0e7e66c 100644
+--- a/frontend/src/pages/Publications.jsx
++++ b/frontend/src/pages/Publications.jsx
+@@ -16,7 +16,7 @@ const Publications = () => {
+       : 'Publications | Aleksei Bespechnyi — MeinBezirk.at Contributor';
+   const description =
+     language === 'de'
+-      ? 'Alle 11 Gastbeiträge von Aleksei Bespechnyi auf MeinBezirk.at zu Linz, Steyr, Oberösterreich, Studentenleben, Digital Marketing, Gastronomie und Kultur. Über 27.000 Leser.'
++      ? 'Alle 11 Gastbeiträge von Aleksei Bespechnyi auf MeinBezirk.at zu Linz, Steyr, OÖ, Studentenleben, Digital Marketing, Gastronomie und Kultur. 27.000+ Leser.'
+       : 'All 11 guest articles by Aleksei Bespechnyi published on MeinBezirk.at covering Linz, Steyr, Upper Austria, student life, digital marketing, hospitality and culture. Over 27,000 readers.';
+ 
+   const jsonLd = {
+diff --git a/frontend/src/pages/Skills.jsx b/frontend/src/pages/Skills.jsx
+index 661d5c5..8223593 100755
+--- a/frontend/src/pages/Skills.jsx
++++ b/frontend/src/pages/Skills.jsx
+@@ -11,11 +11,11 @@ const Skills = () => {
+   useSEO({
+     title:
+       language === 'de'
+-        ? 'Kompetenzen | Aleksei Bespechnyi — Sprachen, Tools & Soft Skills'
++        ? 'Kompetenzen | Aleksei Bespechnyi — Sprachen, Tools & Skills'
+         : 'Skills | Aleksei Bespechnyi — Languages, Tools & Soft Skills',
+     description:
+       language === 'de'
+-        ? '5 Sprachen: Russisch (Muttersprache), Deutsch C2, Englisch C1, Spanisch B2, Chinesisch HSK3. SAP MM/FI/SD, Excel fortgeschritten, Office 365. Upselling, interkulturelle Kommunikation, Rhetorik.'
++        ? '5 Sprachen: Russisch, Deutsch C2, Englisch C1, Spanisch B2, Chinesisch HSK3. SAP MM/FI/SD, Excel fortgeschritten, Office 365, Rhetorik & Upselling.'
+         : '5 languages: Russian (native), German C2, English C1, Spanish B2, Chinese HSK3. SAP MM/FI/SD, advanced Excel, Office 365. Upselling, intercultural communication, public speaking.',
+     canonical: 'https://alex-gsm.at/skills',
+     locale: language === 'de' ? 'de_AT' : 'en_US',
+diff --git a/frontend/src/pages/Trends.jsx b/frontend/src/pages/Trends.jsx
+index 7b9ac9a..fbfe7e6 100755
+--- a/frontend/src/pages/Trends.jsx
++++ b/frontend/src/pages/Trends.jsx
+@@ -11,8 +11,8 @@ const Trends = () => {
+   useSEO({
+     title:
+       language === 'de'
+-        ? 'Marketing Trends | Aleksei Bespechnyi — SEO & Digital Marketing News'
+-        : 'Marketing Trends | Aleksei Bespechnyi — SEO & Digital Marketing News',
++        ? 'Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News'
++        : 'Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News',
+     description:
+       language === 'de'
+         ? 'Aktuelle Nachrichten und Insights aus der SEO- und Digital-Marketing-Branche. Automatische Aktualisierung zweimal täglich.'
+-- 
+2.54.0
+

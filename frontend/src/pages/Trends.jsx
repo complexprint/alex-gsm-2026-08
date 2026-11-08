@@ -11,8 +11,8 @@ const Trends = () => {
   useSEO({
     title:
       language === 'de'
-        ? 'Marketing Trends | Aleksei Bespechnyi — SEO & Digital Marketing News'
-        : 'Marketing Trends | Aleksei Bespechnyi — SEO & Digital Marketing News',
+        ? 'Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News'
+        : 'Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News',
     description:
       language === 'de'
         ? 'Aktuelle Nachrichten und Insights aus der SEO- und Digital-Marketing-Branche. Automatische Aktualisierung zweimal täglich.'
