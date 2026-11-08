@@ -1,141 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Newspaper, ExternalLink, MapPin, Calendar } from 'lucide-react';
+import { Newspaper, ArrowRight, MapPin, Calendar, Clock, ExternalLink } from 'lucide-react';
 import { PageLayout, fadeUp } from '../components/PageLayout';
 import useSEO from '../hooks/useSEO';
-
-const PROFILE_URL =
-  'https://www.meinbezirk.at/linz/profile-772419/aleksei-bespechnyi?type=article&filter=published';
-
-const publications = [
-  {
-    id: 'wm-linz-gastro',
-    date: '11.07.2026',
-    tags: ['OÖ', 'Linz', 'Gastronomie'],
-    kicker: 'Fernseher allein bringt nix',
-    title: 'Wie Linzer Gastronomen WM-Umsatz liegen lassen',
-    excerpt:
-      'Die WM 2026 läuft auf Hochtouren – doch während die einen Lokale wie ein aufgeladener Porsche starten, verhalten sich andere wie ein rostiges Fahrrad am Hauptbahnhof.',
-    excerptEn:
-      'The 2026 World Cup is in full swing – while some Linz venues fire like a supercharged Porsche, others behave like a rusty bike at the main station.',
-    image: 'https://media04.meinbezirk.at/article/2026/07/11/1/51657771_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/wie-linzer-gastronomen-wm-umsatz-liegen-lassen_a8793372',
-    accent: 'from-orange-500/30 to-red-500/30',
-  },
-  {
-    id: 'larin-catenaccio',
-    date: '13.06.2026',
-    tags: ['OÖ', 'Sport', 'WM 2026'],
-    kicker: 'Larin vs Catenaccio: Duell der Spielkulturen',
-    title: 'Sichtbarkeit entscheidet – Umgebung formt Erfolg',
-    excerpt:
-      'Die Konfrontation zweier Fußballwelten bei der WM 2026 zwischen Kanada und Bosnien‑Herzegowina. Ein Unentschieden, das mehr sagt als das Ergebnis.',
-    excerptEn:
-      'Two football worlds collide at the 2026 World Cup between Canada and Bosnia. A draw that says more than the result.',
-    image: 'https://media04.meinbezirk.at/article/2026/06/13/9/51176789_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/sichtbarkeit-entscheidet-umgebung-formt-erfolg_a8689877',
-    accent: 'from-emerald-500/30 to-cyan-500/30',
-  },
-  {
-    id: 'partybus',
-    date: '06.04.2026',
-    tags: ['OÖ', 'Linz', 'Lifestyle'],
-    kicker: 'Vergiss Putzerei und Nachbarn!',
-    title: 'Warum Österreicher jetzt im Bus fetzen',
-    excerpt:
-      'Der neue heiße Scheiß in Österreich heißt Partybus mieten – eine fahrende Location ohne depperte Nachbarn und teure Restaurants.',
-    excerptEn:
-      'Austria’s new favourite party is on wheels – a moving venue with no annoying neighbours and no overpriced restaurants.',
-    image: 'https://media04.meinbezirk.at/article/2026/04/06/6/50159146_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/warum-oesterreicher-jetzt-im-bus-fetzen_a8570905',
-    accent: 'from-fuchsia-500/30 to-pink-500/30',
-  },
-  {
-    id: 'drogen-razzia',
-    date: '25.03.2026',
-    tags: ['OÖ', 'Linz', 'Reportage'],
-    kicker: '85 Festnahmen: Der Kevin managte Drogen',
-    title: 'Linz hat ein Drogenproblem, und ich habe ein Kaffeeproblem',
-    excerpt:
-      'Eine satirische Reportage über die Razzia in Oberösterreich und den Alltag am Linzer Hauptbahnhof.',
-    excerptEn:
-      'A satirical report on the police raid in Upper Austria and everyday life at Linz main station.',
-    image: 'https://media04.meinbezirk.at/article/2026/03/25/7/50023417_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/linz-hat-ein-drogenproblem-und-ich-habe-einen-kaffeeproblem-wo-bleibt-meine-razzia_a8552632',
-    accent: 'from-amber-500/30 to-red-500/30',
-  },
-  {
-    id: 'jku-spartipps',
-    date: '01.02.2026',
-    tags: ['OÖ', 'Linz', 'Studentenleben'],
-    kicker: 'Essen in Linz ohne Schnickschnack',
-    title: 'Die besten Spartipps für JKU-Studenten',
-    excerpt:
-      'Von der Uni-Mensa bis zu günstigen Alternativen – ein ehrlicher Guide, wie man in der Stahlstadt nicht verhungert, ohne die Seele zu verkaufen.',
-    excerptEn:
-      'From the university cafeteria to cheap alternatives – an honest guide on how to survive in Linz without selling your soul.',
-    image: 'https://media04.meinbezirk.at/article/2026/02/01/7/49263907_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/die-besten-spartipps-fuer-jku-studenten_a8020231',
-    accent: 'from-yellow-500/30 to-orange-500/30',
-  },
-  {
-    id: 'gruener-stahl',
-    date: '25.01.2026',
-    tags: ['OÖ', 'Wirtschaft', 'voestalpine'],
-    kicker: 'Grüner Stahl: Verrückt oder unsere Rettung?',
-    title: 'Ein Oberösterreicher über Voestalpines riskanten Weg',
-    excerpt:
-      'Während Autohersteller weniger Blech kaufen und billiger Stahl aus Fernost schwappt, pumpen europäische Stahlwerke 1,5 Milliarden in grünen Wasserstoff.',
-    excerptEn:
-      'While carmakers buy less steel and cheap imports flood Europe, European steelworks are pouring €1.5 billion into green hydrogen.',
-    image: 'https://media04.meinbezirk.at/article/2026/01/25/0/49161490_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/ein-oberoesterreicher-ueber-voestalpines-riskanten-weg_a7993003',
-    accent: 'from-lime-500/30 to-emerald-500/30',
-  },
-  {
-    id: 'jobportal-chaos',
-    date: '16.01.2026',
-    tags: ['OÖ', 'Linz', 'Karriere'],
-    kicker: 'Jobportal-Chaos: Bewerbung wie Schneesturm',
-    title: 'Ein Student klagt an: Von Formular-Hölle bis One-Click-Lösung',
-    excerpt:
-      'Arbeit suchen ist wie mit dem Rad bei Schneesturm durch Linz fahren — theoretisch machbar, praktisch fragst du dich alle fünf Minuten, warum du dir das antust.',
-    excerptEn:
-      'Job hunting is like cycling through Linz in a blizzard — technically possible, practically exhausting.',
-    image: 'https://media04.meinbezirk.at/article/2026/01/16/3/49044213_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/ein-student-klagt-an-von-formular-hoelle-bis-one-click-loesung_a7969380',
-    accent: 'from-sky-500/30 to-indigo-500/30',
-  },
-  {
-    id: 'winterradeln',
-    date: '10.01.2026',
-    tags: ['OÖ', 'Linz', 'Outdoor'],
-    kicker: 'Winterradeln in Linz',
-    title: 'Schneechaos in Linz: Fahrrad-Abenteuer trotz Arktis-Wetter',
-    excerpt:
-      'Ein glorreicher Tag in der winterlichen Landschaft von Linz, wo die Natur einen rekordverdächtigen Schneeschauer herabschüttet.',
-    excerptEn:
-      'A glorious day in wintry Linz, where nature dumps a record-breaking snow shower on our heads.',
-    image: 'https://media04.meinbezirk.at/article/2026/01/10/0/48971190_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/schneechaos-in-linz-fahrrad-abenteuer-trotz-arktiswetter_a7949124',
-    accent: 'from-cyan-500/30 to-blue-500/30',
-  },
-  {
-    id: 'linz-steyr-pendeln',
-    date: '08.01.2026',
-    tags: ['OÖ', 'Linz', 'Steyr', 'FH'],
-    kicker: 'Studentenleben zwischen Linz und Steyr',
-    title: 'Alltag eines FH-Studenten im Pendelmodus',
-    excerpt:
-      'Zwei völlig unterschiedliche Welten — Linz mit schnellem Rhythmus und Steyr mit historischem, ruhigerem Charme.',
-    excerptEn:
-      'Two very different worlds — the fast-paced rhythm of Linz and the historic, quieter charm of Steyr.',
-    image: 'https://media04.meinbezirk.at/article/2026/01/08/1/48958101_L.webp',
-    href: 'https://www.meinbezirk.at/linz/c-regionauten-community/zwischen-linz-und-steyr-alltag-eines-fhstudenten-im-pendelmodus_a7944117',
-    accent: 'from-violet-500/30 to-purple-500/30',
-  },
-];
+import { articles, PROFILE_URL } from '../data/articles';
 
 const Publications = () => {
   const { language } = useLanguage();
@@ -146,8 +16,8 @@ const Publications = () => {
       : 'Publications | Aleksei Bespechnyi — MeinBezirk.at Contributor';
   const description =
     language === 'de'
-      ? 'Alle Gastbeiträge von Aleksei Bespechnyi auf MeinBezirk.at zu Linz, Steyr, Oberösterreich, Studentenleben, Digital Marketing, Gastronomie und Kultur.'
-      : 'All guest articles by Aleksei Bespechnyi published on MeinBezirk.at covering Linz, Steyr, Upper Austria, student life, digital marketing, hospitality and culture.';
+      ? 'Alle 11 Gastbeiträge von Aleksei Bespechnyi auf MeinBezirk.at zu Linz, Steyr, OÖ, Studentenleben, Digital Marketing, Gastronomie und Kultur. 27.000+ Leser.'
+      : 'All 11 guest articles by Aleksei Bespechnyi published on MeinBezirk.at covering Linz, Steyr, Upper Austria, student life, digital marketing, hospitality and culture. Over 27,000 readers.';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -162,15 +32,15 @@ const Publications = () => {
     mainEntity: {
       '@type': 'ItemList',
       itemListOrder: 'https://schema.org/ItemListOrderDescending',
-      numberOfItems: publications.length,
-      itemListElement: publications.map((p, idx) => ({
+      numberOfItems: articles.length,
+      itemListElement: articles.map((p, idx) => ({
         '@type': 'ListItem',
         position: idx + 1,
         item: {
           '@type': 'NewsArticle',
           headline: `${p.kicker} – ${p.title}`,
-          image: p.image,
-          url: p.href,
+          image: p.coverImage ? `https://alex-gsm.at${p.coverImage}` : undefined,
+          url: `https://alex-gsm.at/publications/${p.id}`,
           author: { '@id': 'https://alex-gsm.at/#person' },
           publisher: {
             '@type': 'Organization',
@@ -186,7 +56,7 @@ const Publications = () => {
     title,
     description,
     canonical: 'https://alex-gsm.at/publications',
-    image: publications[0].image,
+    image: articles[0]?.coverImage ? `https://alex-gsm.at${articles[0].coverImage}` : undefined,
     type: 'website',
     locale: language === 'de' ? 'de_AT' : 'en_US',
     jsonLd,
@@ -218,8 +88,8 @@ const Publications = () => {
                 MeinBezirk.at
               </a>{' '}
               über das Leben in Linz, Studenten-Alltag, Wirtschaft, lokale Gastronomie und digitale Kultur.
-              Bereits <strong className="text-white">{publications.length} veröffentlichte Artikel</strong> mit
-              über <strong className="text-white">17.000 erreichten Lesern</strong>.
+              Bereits <strong className="text-white">{articles.length} veröffentlichte Artikel</strong> mit
+              über <strong className="text-white">27.000 erreichten Lesern</strong>.
             </>
           ) : (
             <>
@@ -233,8 +103,8 @@ const Publications = () => {
                 MeinBezirk.at
               </a>{' '}
               about life in Linz, student life, business, local hospitality and digital culture. Already{' '}
-              <strong className="text-white">{publications.length} published articles</strong> with more than{' '}
-              <strong className="text-white">17,000 readers reached</strong>.
+              <strong className="text-white">{articles.length} published articles</strong> with more than{' '}
+              <strong className="text-white">27,000 readers reached</strong>.
             </>
           )}
         </p>
@@ -252,7 +122,7 @@ const Publications = () => {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {publications.map((p, i) => (
+        {articles.map((p, i) => (
           <motion.article
             key={p.id}
             variants={fadeUp}
@@ -264,24 +134,24 @@ const Publications = () => {
             itemScope
             itemType="https://schema.org/NewsArticle"
           >
-            <a
-              href={p.href}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={`/publications/${p.id}`}
               className="relative block h-48 overflow-hidden"
               aria-label={`${p.kicker} – ${p.title}`}
             >
               <div className={`absolute inset-0 bg-gradient-to-br ${p.accent}`} />
-              <img
-                src={p.image}
-                alt={p.title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-                itemProp="image"
-              />
+              {p.coverImage && (
+                <img
+                  src={p.coverImage}
+                  alt={p.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  itemProp="image"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] text-white">
                 <Newspaper className="w-3 h-3 text-fuchsia-300" />
@@ -291,11 +161,17 @@ const Publications = () => {
                 <Calendar className="w-3 h-3" />
                 <time itemProp="datePublished">{p.date}</time>
               </span>
-            </a>
+              {p.readTime && (
+                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 text-[11px] text-zinc-300 bg-black/40 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                  <Clock className="w-3 h-3 text-zinc-400" />
+                  {p.readTime}
+                </span>
+              )}
+            </Link>
 
             <div className="p-6 flex flex-col flex-grow">
               <div className="flex flex-wrap gap-1.5 mb-3">
-                {p.tags.map((tag) => (
+                {p.tags.slice(0, 3).map((tag) => (
                   <span key={tag} className="inline-flex items-center gap-1 text-[11px] text-zinc-400">
                     <MapPin className="w-3 h-3 text-fuchsia-400/70" />
                     {tag}
@@ -313,22 +189,33 @@ const Publications = () => {
                 className="font-heading text-lg sm:text-xl font-semibold text-white mb-3 leading-snug group-hover:text-fuchsia-200 transition-colors"
                 itemProp="headline"
               >
-                {p.title}
+                <Link to={`/publications/${p.id}`}>{p.title}</Link>
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-5 line-clamp-3 flex-grow" itemProp="description">
                 {language === 'de' ? p.excerpt : p.excerptEn}
               </p>
 
-              <a
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                itemProp="url"
-                className="inline-flex items-center gap-2 mt-auto self-start text-sm font-semibold text-fuchsia-300 hover:text-white bg-white/5 hover:bg-fuchsia-500/15 border border-white/10 hover:border-fuchsia-500/40 rounded-full px-4 py-2 transition-all duration-300"
-              >
-                {language === 'de' ? 'Artikel lesen' : 'Read article'}
-                <ExternalLink className="w-4 h-4" />
-              </a>
+              <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">
+                <Link
+                  to={`/publications/${p.id}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-300 hover:text-white bg-white/5 hover:bg-fuchsia-500/15 border border-white/10 hover:border-fuchsia-500/40 rounded-full px-4 py-2 transition-all duration-300"
+                >
+                  {language === 'de' ? 'Artikel lesen' : 'Read article'}
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                {p.href && (
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-zinc-500 hover:text-zinc-300 flex items-center gap-1 transition-colors"
+                    title={language === 'de' ? 'Original auf MeinBezirk.at' : 'Original on MeinBezirk.at'}
+                  >
+                    <span>MeinBezirk</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+              </div>
               <meta itemProp="author" content="Aleksei Bespechnyi" />
               <meta itemProp="publisher" content="MeinBezirk.at" />
             </div>
@@ -346,8 +233,8 @@ const Publications = () => {
       >
         <h3 className="font-heading text-xl sm:text-2xl font-semibold text-white mb-3">
           {language === 'de'
-            ? 'Alle Artikel direkt auf MeinBezirk.at'
-            : 'All articles directly on MeinBezirk.at'}
+            ? 'Alle Artikel auch auf MeinBezirk.at'
+            : 'All articles also on MeinBezirk.at'}
         </h3>
         <p className="text-zinc-400 max-w-2xl mx-auto mb-6">
           {language === 'de'

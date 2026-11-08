@@ -40,11 +40,11 @@ const Home = () => {
   useSEO({
     title:
       language === 'de'
-        ? 'Aleksei Bespechnyi — Marketing Manager | Digital Marketing & Sales | alex-gsm.at'
-        : 'Aleksei Bespechnyi — Marketing Manager | Digital Marketing & Sales | alex-gsm.at',
+        ? 'Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales'
+        : 'Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales',
     description:
       language === 'de'
-        ? 'Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Organic Social Reichweite, +124% Organic Search Traffic. Bachelor Global Sales & Marketing (FH Steyr). Autor bei MeinBezirk.at.'
+        ? 'Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Social-Reichweite, +124% Traffic. Bachelor GSM (FH Steyr). Autor bei MeinBezirk.at.'
         : 'Marketing Manager with hands-on experience at Roll Out Innovation GmbH. +496% Organic Social reach, +124% Organic Search traffic. Bachelor Global Sales & Marketing (FH Steyr). Contributor at MeinBezirk.at.',
     canonical: 'https://alex-gsm.at/',
     locale: language === 'de' ? 'de_AT' : 'en_US',
@@ -369,13 +369,13 @@ const Home = () => {
                 </div>
                 <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white mb-4 leading-tight">
                   {language === 'de'
-                    ? '9 Artikel als freier Autor bei MeinBezirk.at'
-                    : '9 articles as a freelance contributor at MeinBezirk.at'}
+                    ? '11 Artikel als freier Autor bei MeinBezirk.at'
+                    : '11 articles as a freelance contributor at MeinBezirk.at'}
                 </h3>
                 <p className="text-zinc-400 leading-relaxed max-w-2xl mb-6">
                   {language === 'de'
-                    ? 'Seit 2025 veröffentliche ich Gastbeiträge über Linz, Steyr, Studenten-Alltag, voestalpine, Gastronomie und Kultur. Über 17.000 erreichte Leser – Copywriting live in einem der reichweitenstärksten österreichischen Regionalportale.'
-                    : 'Since 2025 I have been publishing guest articles about Linz, Steyr, student life, voestalpine, hospitality and culture. Over 17,000 readers reached – copywriting in action on one of Austria’s largest regional platforms.'}
+                    ? 'Seit 2025 veröffentliche ich Gastbeiträge über Linz, Steyr, Studenten-Alltag, voestalpine, Gastronomie und Kultur. Über 27.000 erreichte Leser – Copywriting live in einem der reichweitenstärksten österreichischen Regionalportale.'
+                    : 'Since 2025 I have been publishing guest articles about Linz, Steyr, student life, voestalpine, hospitality and culture. Over 27,000 readers reached – copywriting in action on one of Austria’s largest regional platforms.'}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-8">
@@ -415,7 +415,7 @@ const Home = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
                     <p className="font-heading text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-400">
-                      9
+                      11
                     </p>
                     <p className="text-sm text-zinc-400 mt-1">
                       {language === 'de' ? 'veröffentlichte Artikel' : 'published articles'}
@@ -423,7 +423,7 @@ const Home = () => {
                   </div>
                   <div className="bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl p-5">
                     <p className="font-heading text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-400">
-                      17k+
+                      27k+
                     </p>
                     <p className="text-sm text-zinc-400 mt-1">
                       {language === 'de' ? 'erreichte Leser' : 'readers reached'}

@@ -13,6 +13,7 @@ import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import Trends from "./pages/Trends";
 import Publications from "./pages/Publications";
+import ArticleDetail from "./pages/ArticleDetail";
 
 function App() {
   return (
@@ -29,7 +30,9 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/trends" element={<Trends />} />
             <Route path="/publications" element={<Publications />} />
+            <Route path="/publications/:id" element={<ArticleDetail />} />
             <Route path="/publikationen" element={<Publications />} />
+            <Route path="/publikationen/:id" element={<ArticleDetail />} />
           </Routes>
         </Layout>
         <CookieBanner />
