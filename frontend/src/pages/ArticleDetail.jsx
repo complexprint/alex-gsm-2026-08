@@ -360,7 +360,7 @@ const ArticleDetail = () => {
                   <ExternalLink className="w-3 h-3" />
                 </a>
                 <a
-                  href="mailto:7css77@gmail.com?subject=Gastbeitrag%20Feedback"
+                  href="mailto:alekseibespechnyi@outlook.com?subject=Gastbeitrag%20Feedback"
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-300 hover:text-white bg-white/5 border border-white/10 rounded-full px-4 py-2 transition-all"
                 >
                   {language === 'de' ? 'Feedback senden' : 'Send feedback'}

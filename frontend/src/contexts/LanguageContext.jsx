@@ -29,14 +29,16 @@ const translations = {
     // About
     aboutTitle: 'Über mich',
     aboutText1: 'Seit meinem 14. Lebensjahr lebe und studiere ich eigenständig in Österreich. Diese Erfahrung hat mich früh unabhängig, resilient und interkulturell äußerst kompetent gemacht.',
-    aboutText2: 'Derzeit studiere ich im 6. Semester Global Sales and Marketing an der FH Oberösterreich in Steyr (100 % englischsprachig). Mein Auslandssemester an der Providence University in Taiwan (2024/25) vertieft derzeit meine Chinesischkenntnisse sowie mein Verständnis für den asiatischen Markt.',
+    aboutText2: 'Derzeit studiere ich im 1. Studienjahr des Masterstudiengangs Global Sales and Marketing an der FH Oberösterreich in Steyr (100 % englischsprachig). Meinen Bachelorabschluss habe ich im Juni 2026 erfolgreich abgeschlossen. Zuvor vertiefte mein Auslandssemester an der Providence University in Taiwan (2024/25) meine Chinesischkenntnisse sowie mein Verständnis für den asiatischen Markt.',
     aboutText3: 'Ich brenne für nachhaltige Technologien, internationale Geschäftsentwicklung und überzeugende Kommunikation, ob auf der Bühne oder im direkten Kundengespräch.',
     
     // Education
     educationTitle: 'Ausbildung',
+    edu0Title: 'Master of Arts – Global Sales and Marketing',
+    edu0Date: '2026 – 2028',
     edu1Title: 'Bachelor of Arts – Global Sales & Marketing',
     edu1Location: 'FH Oberösterreich, Campus Steyr',
-    edu1Date: 'Seit 09.2023 (Abschluss 2026)',
+    edu1Date: '09.2023 – 06.2026',
     edu2Title: 'Auslandssemester',
     edu2Location: 'Providence University 靜宜大學, Taichung, Taiwan',
     edu2Date: '09.2024 – 02.2025',
@@ -142,14 +144,16 @@ const translations = {
     // About
     aboutTitle: 'About Me',
     aboutText1: 'I have been living and studying independently in Austria since the age of 14 – an experience that made me mature, resilient and truly intercultural.',
-    aboutText2: 'Currently in my 6th semester of the English-taught Bachelor programme "Global Sales & Marketing" at FH Upper Austria (Steyr Campus). Spending my exchange semester 2024/25 at Providence University in Taiwan to strengthen my Chinese and deepen my understanding of Asian markets.',
+    aboutText2: "Currently in my first year of the English-taught Master's programme Global Sales and Marketing at FH Upper Austria (Steyr Campus). I successfully completed my Bachelor's degree in June 2026. Previously, my exchange semester at Providence University in Taiwan (2024/25) deepened my Chinese language skills and understanding of Asian markets.",
     aboutText3: 'Passionate about sustainable technologies, international business development and persuasive communication – on stage and in front of clients.',
     
     // Education
     educationTitle: 'Education',
+    edu0Title: 'Master of Arts – Global Sales and Marketing',
+    edu0Date: '2026 – 2028',
     edu1Title: 'Bachelor of Arts – Global Sales & Marketing',
     edu1Location: 'University of Applied Sciences Upper Austria, Steyr Campus',
-    edu1Date: 'since 09.2023 (graduation 2026)',
+    edu1Date: 'Sep 2023 – Jun 2026',
     edu2Title: 'Exchange semester',
     edu2Location: 'Providence University, Taiwan',
     edu2Date: 'Sep 2024 – Feb 2025',

@@ -15,15 +15,15 @@ const Contact = () => {
         : 'Contact | Aleksei Bespechnyi — Marketing Manager in Linz',
     description:
       language === 'de'
-        ? 'Kontakt aufnehmen mit Aleksei Bespechnyi. E-Mail 7css77@gmail.com, +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote.'
-        : 'Get in touch with Aleksei Bespechnyi. Email 7css77@gmail.com, +43 681 81411499. Available in Linz, Steyr, Vienna, Salzburg or remote.',
+        ? 'Kontakt aufnehmen mit Aleksei Bespechnyi. E-Mail alekseibespechnyi@outlook.com, +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote.'
+        : 'Get in touch with Aleksei Bespechnyi. Email alekseibespechnyi@outlook.com, +43 681 81411499. Available in Linz, Steyr, Vienna, Salzburg or remote.',
     canonical: 'https://alex-gsm.at/contact',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
 
   const contactInfo = [
     { icon: Phone, label: '+43 681 81411499', href: 'tel:+436818141149' },
-    { icon: Mail, label: '7css77@gmail.com', href: 'mailto:7css77@gmail.com' },
+    { icon: Mail, label: 'alekseibespechnyi@outlook.com', href: 'mailto:alekseibespechnyi@outlook.com' },
     { icon: MapPin, label: 'Linz / Steyr / Wien / Salzburg', href: null },
   ];
 
@@ -124,7 +124,7 @@ const Contact = () => {
           data-testid="contact-make-offer-button"
           onClick={() => {
             const subject = language === 'de' ? 'Angebot machen' : 'Do an offer';
-            window.location.href = `mailto:7css77@gmail.com?subject=${encodeURIComponent(subject)}`;
+            window.location.href = `mailto:alekseibespechnyi@outlook.com?subject=${encodeURIComponent(subject)}`;
           }}
           className="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-600 text-white font-semibold text-lg border border-white/20 shadow-[0_0_20px_rgba(192,38,211,0.3)] hover:shadow-[0_0_40px_rgba(192,38,211,0.6)] hover:scale-[1.02] transition-all duration-300"
         >

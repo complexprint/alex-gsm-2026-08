@@ -15,8 +15,8 @@ const About = () => {
         : 'About me | Aleksei Bespechnyi — Marketing Manager in Linz',
     description:
       language === 'de'
-        ? 'Seit dem 14. Lebensjahr in Österreich. Bachelor Global Sales & Marketing (FH Steyr), Auslandssemester in Taiwan. Österreichischer Rhetorik-Meister SAG\'S MULTI! 2020/21.'
-        : 'Living in Austria since age 14. Bachelor Global Sales & Marketing (FH Steyr), exchange semester in Taiwan. Austrian public speaking champion SAG\'S MULTI! 2020/21.',
+        ? 'Seit dem 14. Lebensjahr in Österreich. Master & Bachelor GSM (FH Steyr), Auslandssemester in Taiwan. Österreichischer Rhetorik-Meister SAG\'S MULTI! 2020/21.'
+        : 'Living in Austria since age 14. Master & Bachelor GSM (FH Steyr), exchange semester in Taiwan. Austrian public speaking champion SAG\'S MULTI! 2020/21.',
     canonical: 'https://alex-gsm.at/about',
     type: 'profile',
     locale: language === 'de' ? 'de_AT' : 'en_US',

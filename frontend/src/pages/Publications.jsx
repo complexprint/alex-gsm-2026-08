@@ -253,7 +253,7 @@ const Publications = () => {
             <ExternalLink className="w-4 h-4" />
           </a>
           <a
-            href="mailto:7css77@gmail.com?subject=Gastbeitrag%20/%20Content%20Cooperation"
+            href="mailto:alekseibespechnyi@outlook.com?subject=Gastbeitrag%20/%20Content%20Cooperation"
             className="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-fuchsia-500/30 text-white px-6 py-3 rounded-full font-semibold transition-all"
           >
             {language === 'de' ? 'Kontakt aufnehmen' : 'Get in touch'}

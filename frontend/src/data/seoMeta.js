@@ -12,11 +12,11 @@ export const seoMeta = {
   },
   "/about": {
     title: "Über mich | Aleksei Bespechnyi — Marketing Manager in Linz",
-    description: "Seit dem 14. Lebensjahr in Österreich. Bachelor Global Sales & Marketing (FH Steyr), Auslandssemester Taiwan. Rhetorik-Meister SAG'S MULTI! 2020/21."
+    description: "Seit dem 14. Lebensjahr in Österreich. Master & Bachelor GSM (FH Steyr), Auslandssemester Taiwan. Rhetorik-Meister SAG'S MULTI! 2020/21."
   },
   "/education": {
-    title: "Ausbildung | Aleksei Bespechnyi — Bachelor GSM, FH Steyr",
-    description: "Bachelor Global Sales & Marketing an der FH OÖ Campus Steyr (Englisch), Auslandssemester Providence University Taiwan, HAK Oberwart mit Auszeichnung."
+    title: "Ausbildung | Aleksei Bespechnyi — Master & Bachelor GSM",
+    description: "Master & Bachelor Global Sales & Marketing an der FH OÖ Campus Steyr, Auslandssemester Providence University Taiwan, HAK Oberwart mit Auszeichnung."
   },
   "/experience": {
     title: "Erfahrung & Projekte | Aleksei Bespechnyi — Marketing & Sales",
@@ -36,6 +36,6 @@ export const seoMeta = {
   },
   "/contact": {
     title: "Kontakt | Aleksei Bespechnyi — Marketing Manager in Linz",
-    description: "Kontakt aufnehmen mit Aleksei Bespechnyi: E-Mail 7css77@gmail.com, Telefon +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote."
+    description: "Kontakt aufnehmen mit Aleksei Bespechnyi: E-Mail alekseibespechnyi@outlook.com, Telefon +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote."
   }
 };

@@ -75,7 +75,7 @@
 #### Email интеграция
 - Кнопка "Angebot machen" открывает почтовый клиент
 - Автоматический subject в зависимости от языка
-- Email: 7css77@gmail.com
+- Email: alekseibespechnyi@outlook.com
 
 #### CV Download
 - Кнопка в header для скачивания CV
@@ -181,7 +181,7 @@ Gradient: from-pink-600 to-purple-600
 
 ### Контактные данные
 - **Телефон**: +43 681 81411499
-- **Email**: 7css77@gmail.com
+- **Email**: alekseibespechnyi@outlook.com
 - **Локация**: Linz / Steyr / Wien / Salzburg
 - **LinkedIn**: linkedin.com/in/alexeybespechny
 - **XING**: xing.com/profile/Alexey_Bespechny
@@ -213,7 +213,7 @@ Gradient: from-pink-600 to-purple-600
 ## 📞 Поддержка
 
 Для вопросов по сайту:
-- Email: 7css77@gmail.com
+- Email: alekseibespechnyi@outlook.com
 - Telegram: (если требуется)
 
 ---

@@ -59,7 +59,7 @@ const Home = () => {
       language === 'de'
         ? 'Hallo Aleksei,%0D%0A%0D%0Awir haben Ihr Profil gesehen und möchten Ihnen folgende Position / Projekt anbieten:%0D%0A%0D%0A'
         : 'Hi Aleksei,%0D%0A%0D%0AWe saw your profile and would like to offer you the following position / project:%0D%0A%0D%0A';
-    window.location.href = `mailto:7css77@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = `mailto:alekseibespechnyi@outlook.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   const skills = [
@@ -143,8 +143,8 @@ const Home = () => {
             </p>
             <p className="text-sm text-zinc-500 mt-3">
               {language === 'de'
-                ? 'Bachelor Global Sales & Marketing Student (letztes Semester, FH Steyr)'
-                : 'Bachelor Global Sales & Marketing Student (final semester, FH Steyr)'}
+                ? 'Master Global Sales & Marketing Student (1. Studienjahr, FH Steyr)'
+                : 'Master Global Sales & Marketing Student (1st year, FH Steyr)'}
             </p>
 
             {/* Contact row */}
@@ -153,9 +153,9 @@ const Home = () => {
                 <Phone className="w-4 h-4 text-zinc-500 group-hover:text-fuchsia-400 transition-colors" />
                 +43 681 81411499
               </a>
-              <a href="mailto:7css77@gmail.com?subject=International%20Sales%20Zusammenarbeit" className="group inline-flex items-center gap-2 text-zinc-300 hover:text-fuchsia-400 transition-colors">
+              <a href="mailto:alekseibespechnyi@outlook.com?subject=International%20Sales%20Zusammenarbeit" className="group inline-flex items-center gap-2 text-zinc-300 hover:text-fuchsia-400 transition-colors">
                 <Mail className="w-4 h-4 text-zinc-500 group-hover:text-fuchsia-400 transition-colors" />
-                7css77@gmail.com
+                alekseibespechnyi@outlook.com
               </a>
               <a href="https://www.google.com/maps/search/?api=1&query=Linz,Austria" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 text-zinc-300 hover:text-fuchsia-400 transition-colors">
                 <MapPin className="w-4 h-4 text-zinc-500 group-hover:text-fuchsia-400 transition-colors" />
