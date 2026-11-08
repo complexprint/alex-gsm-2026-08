@@ -1,26 +1,41 @@
 # Aleksei Bespechnyi – International Sales & Business Development
-> Professional website of Aleksei Bespechnyi, based in Linz, Austria. Specialized in international sales, business development, and digital marketing.
+
+> Professional portfolio and website of Aleksei Bespechnyi, based in Linz, Austria. Master student in Global Sales and Marketing at FH Upper Austria (Campus Steyr). Specialized in international B2B sales, business development, global client acquisition, and strategic pricing.
 
 ## About
-- Aleksei Bespechnyi: Bachelor Global Sales & Marketing student (final semester, FH Steyr).
-- Core focus: international client acquisition, market research, business development, using marketing as a strategic tool.
-- Proven results: +496% organic social reach, +124% organic search traffic (partyboss.at case).
+- Aleksei Bespechnyi: Master of Arts student (1st academic year 2026–2028) in Global Sales and Marketing at FH Upper Austria, Campus Steyr (100% English-taught).
+- Completed Bachelor of Arts in Global Sales & Marketing in June 2026 at FH Upper Austria.
+- Exchange semester at Providence University in Taiwan (2024/25) focusing on Chinese language and Asian business culture.
+- Austrian public speaking champion (SAG'S MULTI! 2020/21) with proven communication and negotiation skills.
+- Core focus: international client acquisition, B2B dynamic pricing, market expansion, and strategic sales development.
+- Proven results: +496% organic social reach and +124% organic search traffic (partyboss.at case).
 
-## Key pages
-- Home: https://alex-gsm.at/
-- Letzte Erfahrung (partyboss.at case study with metrics): https://alex-gsm.at/ (same page, section "Recent Experience")
-- Social Projects: https://alex-gsm.at/ (section "Digital Marketing for Social Projects")
-- Contact: https://alex-gsm.at/ (email: alekseibespechnyi@outlook.com, phone: +43 681 81411499)
+## Site Structure
+- [Home](https://alex-gsm.at/): Main overview, key achievements, profile summary, and contact CTA.
+- [About](https://alex-gsm.at/about): Personal background, values, rhetoric championship, and academic milestones.
+- [Education](https://alex-gsm.at/education): Master & Bachelor studies at FH Steyr, Taiwan exchange, HAK Oberwart, and B2B research projects.
+- [Experience](https://alex-gsm.at/experience): Hands-on business development cases, partyboss.at growth metrics, and social marketing initiatives.
+- [Skills](https://alex-gsm.at/skills): B2B sales management, strategic pricing, CRM & outreach, data analytics, and languages.
+- [Publications](https://alex-gsm.at/publications): 11 published regional and business articles for MeinBezirk.at with over 27,000 readers.
+- [Trends](https://alex-gsm.at/trends): Daily curated analysis of Austrian business, tech, and economic news.
+- [Contact](https://alex-gsm.at/contact): Direct contact form, email links, phone, and offer requests.
 
-## Work samples & testimonials
-- partyboss.at: built sales and digital visibility from scratch, led to 500% organic growth (see metrics on site).
-- Testimonial from Sascha Reischl (CEO Roll Out Innovation GmbH): "Aleksei proved in just three months that he understands digital marketing… He works independently, thinks strategically, and delivers results."
+## Research & Key Projects
+- [Nimbuscloud Pricing & Gamification](https://alex-gsm.at/education): Empirical data analysis of 306 dance schools, 3-tier pricing model (+92% projected revenue increase, ~€108,000/month potential), and B2B gamification mechanics.
+- [voestalpine Steel Division Pricing Report](https://alex-gsm.at/education): Team report on B2B dynamic pricing, Bauma 2025 Munich survey (111 respondents), and RemAvtoSnab/ArcelorMittal case studies.
+- [partyboss.at Growth Strategy](https://alex-gsm.at/experience): Scaled organic reach by +496% and search traffic by +124% with CEO testimonial from Roll Out Innovation GmbH.
 
-## Availability
-- Open to opportunities: international sales, business development, international projects, client acquisition.
-- Location: Linz / Steyr / Wien / Salzburg (remote/hybrid possible).
-- Languages: German, English, [others if applicable].
-
-## Social & other links
-- LinkedIn: [add your LinkedIn URL if available]
+## Key Info
+- Availability: Open to international B2B sales, business development, global project management, and client acquisition roles.
+- Status: Master student (1st year, 2026–2028), FH Upper Austria Campus Steyr. Bachelor completed in June 2026.
+- Location: Linz / Steyr / Wien / Salzburg, Austria (open to on-site, hybrid, and remote roles).
+- Languages: German (native-level / bilingual), English (fluent, 100% academic proficiency), Russian (native), Chinese / Mandarin (basic/conversational).
 - Email: alekseibespechnyi@outlook.com
+- Phone: +43 681 81411499
+
+## Social & Profiles
+- [LinkedIn Profile](https://www.linkedin.com/in/aleksei-bespechnyi-%E5%8C%85%E5%81%89%E7%BF%94-5a8496217): Professional background and networking.
+- [MeinBezirk Author Articles](https://alex-gsm.at/publications): Published journalism and regional business coverage.
+
+## Optional
+- [Full LLM Profile](https://alex-gsm.at/llms-full.txt): Comprehensive background, in-depth methodology, detailed case studies, and complete academic details.

@@ -1,45 +1,61 @@
-# Aleksei Bespechnyi – Full Profile
+# Aleksei Bespechnyi – Full Profile & Knowledge Base
 
-## Introduction
-Aleksei Bespechnyi, Marketing Manager turned International Sales & Business Development professional. 
-Bachelor student in Global Sales & Marketing (final semester, FH Steyr). 
-Based in Linz, Austria, open to work across DACH region and remotely.
+> Comprehensive professional profile, academic background, research projects, and skills inventory for Aleksei Bespechnyi, based in Linz, Austria.
 
-## My Mindset
-Marketing can attract attention. But real success happens when attention turns into clients, and clients into revenue. 
-During my internship I optimized the entire funnel and improved conversion – that was the turbo. 
-My core focus is on the engine: international sales and business development. 
-I find and open new markets, build conversations with international clients, understand their needs and adapt the offer so that interest turns into concrete revenue. 
-Marketing is not an end in itself, but a strategic tool for client acquisition.
+## Executive Summary
+Aleksei Bespechnyi is an International Sales and Business Development professional.
+Currently enrolled in the 1st year of the Master of Arts programme in Global Sales and Marketing at FH Upper Austria (Campus Steyr, 2026–2028).
+Completed his Bachelor of Arts in Global Sales & Marketing in June 2026 at FH Upper Austria.
+Independent living and studying in Austria since age 14, combining cross-cultural fluency, commercial acumen, and hands-on digital sales execution.
 
-## Key Results (partyboss.at)
-- Organic Social: sessions grew from 25 to 149 (+496%), engagement rate from 60% to 80.5%.
-- Organic Search: sessions grew from 383 to 858 (+124%), engagement rate from 59% to 70.6%.
-- Built sales and digital visibility from scratch for the new brand.
-- Testimonial from Sascha Reischl, CEO Roll Out Innovation GmbH:
-  "Aleksei proved in just three months that he understands digital marketing. The numbers speak for themselves: almost 500% more organic visibility and significantly higher interaction rates. He works independently, thinks strategically, and delivers results. Exactly the kind of employee we were looking for."
+## Mindset & Strategic Philosophy
+Marketing attracts attention, but sustainable growth requires converting attention into qualified pipeline and revenue.
+Aleksei focuses on the entire growth engine:
+1. Identifying and validating international target markets.
+2. Building structured outreach and high-trust B2B relationships.
+3. Aligning pricing architectures with customer willingness-to-pay and usage dynamics.
+4. Leveraging data analytics, AI tools, and content to scale sales velocity.
 
-## Skills
-- International Sales
-- Business Development
-- CRM & Cold Outreach
-- Market Research
-- Marketing Automation
-- SEO & Content Marketing
-- Meta Ads
-- Google Analytics
+## Academic Milestones
+- Master of Arts (MA) – Global Sales and Marketing (2026 – 2028, 1st academic year): FH Upper Austria, Campus Steyr (100% English). Focus on strategic pricing, international market expansion, negotiation, and B2B sales leadership.
+- Bachelor of Arts (BA) – Global Sales & Marketing (09.2023 – 06.2026): FH Upper Austria, Campus Steyr. Completed in June 2026.
+- Exchange Semester (09.2024 – 02.2025): Providence University (Taichung, Taiwan). Focus on Mandarin Chinese, Asian market dynamics, and Pacific Rim negotiation culture.
+- Austrian Matura with Distinction: HAK Oberwart (commercial academy with focus on management, controlling, and accounting).
+- Winner of Austrian Public Speaking Championship: SAG'S MULTI! 2020/21 (bilingual German-Russian speech on social integration and responsibility).
 
-## Social Initiatives
-Supports Roll Out Innovation GmbH's social projects (Zukunft Jugend brand): 
-increasing reach for zukunft-jugend.at and sascha-reischl.at/veranstaltungen, focusing on youth projects MobileJULEI and DriveJUZ.
+## Major Applied Research & Projects
+### 1. Nimbuscloud (B2B SaaS, Linz) — Pricing & Gamification Strategy
+- Conducted with Steyr-based startup Nimbuscloud (CRM and ticketing platform for dance schools across DACH). Supervised by FH-Prof. Dr. Christopher Korntner-Kanitz.
+- Pricing Analysis: Analyzed empirical usage and revenue data of 306 dance schools across 4 pricing tiers. Discovered only 1 customer was on their optimal package. Quantified ~€108,000/month in unrealized revenue potential and designed a 3-tier pricing model enabling +92% revenue upside.
+- Gamification Framework: Created a dual B2C/B2B retention system using Hexad user types, streak mechanics, achievement badges, leaderboards, and mascot-led engagement ('Dance Buddy').
+- Real-World Impact: Key elements (tiered pricing and volume/API billing) were incorporated into Nimbuscloud's live commercial model.
 
-## What I'm Looking For
-Seeking a company that genuinely wants to grow internationally and understands that sales is more than just filling a CRM. 
-I offer a combination of analytical marketing thinking and hands-on sales experience: someone who turns attention into revenue.
-Open for: International Sales, Business Development, International Projects, Client Acquisition.
+### 2. voestalpine Steel Division — B2B Dynamic Pricing Report
+- Collaborative 12-student study supervised by Dr. Andreas Zehetner (2025) investigating dynamic pricing mechanisms for industrial steel markets.
+- Primary Research: Executed on-site empirical survey at Bauma 2025 in Munich (111 validated decision-maker responses) and four in-depth C-level expert interviews (including CEO of RemAvtoSnab).
+- Case Studies: RemAvtoSnab (price software, margin caps under Resolution 713) and ArcelorMittal (index-linked contracts, surcharge models, commodity hedging).
+- Bachelor Thesis: 'How AI can boost qualitative and quantitative research methodologies in B2B: The case of Voestalpine in the Railway Sector'.
 
-## Contact
+### 3. partyboss.at — Growth & Digital Acquisition
+- Built sales and digital presence from zero for a newly launched rental and event brand.
+- Achieved +496% organic social reach (engagement rate increased from 60% to 80.5%).
+- Achieved +124% organic search traffic (sessions from 383 to 858, engagement up to 70.6%).
+- CEO Recommendation from Sascha Reischl (Roll Out Innovation GmbH): 'Aleksei proved in just three months that he understands digital marketing. The numbers speak for themselves... He works independently, thinks strategically, and delivers results.'
+
+### 4. MeinBezirk.at Columnist & Author
+- Authored 11 in-depth regional and business articles covering Linz, Steyr, university life, gastronomy, voestalpine, and urban trends.
+- Accumulated over 27,000 organic readers across upper Austrian regional media.
+
+## Skills Inventory
+- B2B International Sales: Account acquisition, pipeline structuring, multi-stakeholder negotiations, value proposition design.
+- Pricing Strategy: Dynamic pricing, tier design, price elasticity analysis, usage-based billing models.
+- Digital Marketing & SEO: Organic SEO, technical pre-rendering, sitemap architecture, Meta Ads, Google Analytics, content strategy.
+- Research & Analytics: Qualitative and quantitative empirical research, survey design, competitive intelligence, AI-assisted methodologies.
+- Languages: German (fluent/native-level bilingual), English (fluent, full professional proficiency), Russian (native), Chinese / Mandarin (basic/conversational).
+
+## Contact Information
+- Website: https://alex-gsm.at
 - Email: alekseibespechnyi@outlook.com
 - Phone: +43 681 81411499
-- Website: https://alex-gsm.at
-- Location: Linz/Steyr/Wien/Salzburg
+- Location: Linz / Steyr / Wien / Salzburg, Austria
+- LinkedIn: https://www.linkedin.com/in/aleksei-bespechnyi-%E5%8C%85%E5%81%89%E7%BF%94-5a8496217
