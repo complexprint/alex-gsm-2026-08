@@ -16,8 +16,8 @@ const Skills = () => {
     description:
       language === 'de'
         ? '5 Sprachen: Russisch, Deutsch C2, Englisch C1, Spanisch B2, Chinesisch HSK3. SAP MM/FI/SD, Excel fortgeschritten, Office 365, Rhetorik & Upselling.'
-        : '5 languages: Russian (native), German C2, English C1, Spanish B2, Chinese HSK3. SAP MM/FI/SD, advanced Excel, Office 365. Upselling, intercultural communication, public speaking.',
-    canonical: 'https://alex-gsm.at/skills',
+        : '5 languages: Russian, German C2, English C1, Spanish B2, Chinese HSK3. SAP MM/FI/SD, advanced Excel, Office 365, public speaking & B2B upselling.',
+    basePath: '/skills',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
 

@@ -17,7 +17,7 @@ const Contact = () => {
       language === 'de'
         ? 'Kontakt aufnehmen mit Aleksei Bespechnyi. E-Mail alekseibespechnyi@outlook.com, +43 681 81411499. Verfügbar in Linz, Steyr, Wien, Salzburg oder remote.'
         : 'Get in touch with Aleksei Bespechnyi. Email alekseibespechnyi@outlook.com, +43 681 81411499. Available in Linz, Steyr, Vienna, Salzburg or remote.',
-    canonical: 'https://alex-gsm.at/contact',
+    basePath: '/contact',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
 

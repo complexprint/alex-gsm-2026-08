@@ -88,7 +88,7 @@ const ArticleDetail = () => {
   useSEO({
     title: seoTitle,
     description: seoDescription,
-    canonical: article ? `https://alex-gsm.at/publications/${article.id}` : undefined,
+    basePath: article ? `/publications/${article.id}` : undefined,
     image: article?.coverImage ? `https://alex-gsm.at${article.coverImage}` : undefined,
     type: 'article',
     locale: language === 'de' ? 'de_AT' : 'en_US',
@@ -107,7 +107,7 @@ const ArticleDetail = () => {
             : 'This article does not exist or has been moved.'}
         </p>
         <Link
-          to="/publications"
+          to={language === 'en' ? '/en/publications' : '/publications'}
           className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-600 to-violet-600 text-white px-6 py-3 rounded-full font-semibold"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -128,7 +128,7 @@ const ArticleDetail = () => {
         <div className="flex items-center justify-between mb-10">
           <button
             data-testid="back-button"
-            onClick={() => navigate('/publications')}
+            onClick={() => navigate(language === 'en' ? '/en/publications' : '/publications')}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-300 hover:bg-fuchsia-500/10 hover:border-fuchsia-500/30 hover:text-white transition-all duration-300"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -374,7 +374,7 @@ const ArticleDetail = () => {
         <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {prevArticle ? (
             <Link
-              to={`/publications/${prevArticle.id}`}
+              to={`${language === 'en' ? '/en' : ''}/publications/${prevArticle.id}`}
               className="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-fuchsia-500/30 hover:bg-white/[0.04] transition-all flex flex-col justify-between"
             >
               <div className="flex items-center gap-2 text-xs text-zinc-500 mb-2">
@@ -391,7 +391,7 @@ const ArticleDetail = () => {
 
           {nextArticle ? (
             <Link
-              to={`/publications/${nextArticle.id}`}
+              to={`${language === 'en' ? '/en' : ''}/publications/${nextArticle.id}`}
               className="group p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-fuchsia-500/30 hover:bg-white/[0.04] transition-all flex flex-col justify-between sm:text-right"
             >
               <div className="flex items-center justify-end gap-2 text-xs text-zinc-500 mb-2">

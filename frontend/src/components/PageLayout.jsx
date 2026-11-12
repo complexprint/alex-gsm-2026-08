@@ -28,7 +28,7 @@ export const PageLayout = ({ icon: Icon, title, eyebrow, maxWidth = 'max-w-5xl',
         {/* Back button */}
         <button
           data-testid="back-button"
-          onClick={() => navigate('/')}
+          onClick={() => navigate(language === 'en' ? '/en' : '/')}
           className="inline-flex items-center gap-2 mb-10 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-300 hover:bg-fuchsia-500/10 hover:border-fuchsia-500/30 hover:text-white transition-all duration-300"
         >
           <ArrowLeft className="w-4 h-4" />

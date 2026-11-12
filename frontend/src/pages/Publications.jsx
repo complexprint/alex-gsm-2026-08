@@ -17,7 +17,7 @@ const Publications = () => {
   const description =
     language === 'de'
       ? 'Alle 11 Gastbeiträge von Aleksei Bespechnyi auf MeinBezirk.at zu Linz, Steyr, OÖ, Studentenleben, Digital Marketing, Gastronomie und Kultur. 27.000+ Leser.'
-      : 'All 11 guest articles by Aleksei Bespechnyi published on MeinBezirk.at covering Linz, Steyr, Upper Austria, student life, digital marketing, hospitality and culture. Over 27,000 readers.';
+      : '11 guest articles by Aleksei Bespechnyi on MeinBezirk.at: Linz, Steyr, student life, digital marketing, gastronomy and culture in Austria. 27,000+ readers.';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -55,7 +55,7 @@ const Publications = () => {
   useSEO({
     title,
     description,
-    canonical: 'https://alex-gsm.at/publications',
+    basePath: '/publications',
     image: articles[0]?.coverImage ? `https://alex-gsm.at${articles[0].coverImage}` : undefined,
     type: 'website',
     locale: language === 'de' ? 'de_AT' : 'en_US',
@@ -135,7 +135,7 @@ const Publications = () => {
             itemType="https://schema.org/NewsArticle"
           >
             <Link
-              to={`/publications/${p.id}`}
+              to={`${language === 'en' ? '/en' : ''}/publications/${p.id}`}
               className="relative block h-48 overflow-hidden"
               aria-label={`${p.kicker} – ${p.title}`}
             >
@@ -189,7 +189,7 @@ const Publications = () => {
                 className="font-heading text-lg sm:text-xl font-semibold text-white mb-3 leading-snug group-hover:text-fuchsia-200 transition-colors"
                 itemProp="headline"
               >
-                <Link to={`/publications/${p.id}`}>{p.title}</Link>
+                <Link to={`${language === 'en' ? '/en' : ''}/publications/${p.id}`}>{p.title}</Link>
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-5 line-clamp-3 flex-grow" itemProp="description">
                 {language === 'de' ? p.excerpt : p.excerptEn}
@@ -197,7 +197,7 @@ const Publications = () => {
 
               <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">
                 <Link
-                  to={`/publications/${p.id}`}
+                  to={`${language === 'en' ? '/en' : ''}/publications/${p.id}`}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-300 hover:text-white bg-white/5 hover:bg-fuchsia-500/15 border border-white/10 hover:border-fuchsia-500/40 rounded-full px-4 py-2 transition-all duration-300"
                 >
                   {language === 'de' ? 'Artikel lesen' : 'Read article'}

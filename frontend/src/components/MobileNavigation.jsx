@@ -7,17 +7,18 @@ import useClickSound from '../hooks/useClickSound';
 const MobileNavigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const playClickSound = useClickSound();
 
+  const prefix = language === 'en' ? '/en' : '';
   const navItems = [
-    { path: '/', label: 'Home', icon: Home },
-    { path: '/about', label: t('navAbout'), icon: User },
-    { path: '/education', label: t('navEducation'), icon: GraduationCap },
-    { path: '/experience', label: t('navExperience'), icon: Briefcase },
-    { path: '/skills', label: t('navSkills'), icon: Award },
-    { path: '/trends', label: t('navTrends'), icon: TrendingUp },
-    { path: '/contact', label: t('navContact'), icon: Mail },
+    { path: prefix || '/', label: 'Home', icon: Home },
+    { path: `${prefix}/about`, label: t('navAbout'), icon: User },
+    { path: `${prefix}/education`, label: t('navEducation'), icon: GraduationCap },
+    { path: `${prefix}/experience`, label: t('navExperience'), icon: Briefcase },
+    { path: `${prefix}/skills`, label: t('navSkills'), icon: Award },
+    { path: `${prefix}/trends`, label: t('navTrends'), icon: TrendingUp },
+    { path: `${prefix}/contact`, label: t('navContact'), icon: Mail },
   ];
 
   return (
@@ -25,7 +26,8 @@ const MobileNavigation = () => {
       <div className="grid grid-cols-7 gap-1 px-2 py-2">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = location.pathname === item.path;
+          const normalize = (p) => (p || '/').replace(/\/+$/, '') || '/';
+          const isActive = normalize(location.pathname) === normalize(item.path);
           
           return (
             <button

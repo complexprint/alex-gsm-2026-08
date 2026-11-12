@@ -1,5 +1,5 @@
 /**
- * Список маршрутов для статического пререндера alex-gsm.at
+ * Список маршрутов для статического пререндера alex-gsm.at (DE & EN)
  */
 export const articleSlugs = [
   'wm-linz-gastro',
@@ -16,6 +16,7 @@ export const articleSlugs = [
 ];
 
 export const ROUTES = [
+  // Deutsche Hauptversion
   { path: '/' },
   { path: '/about' },
   { path: '/education' },
@@ -25,12 +26,23 @@ export const ROUTES = [
   { path: '/publications' },
   { path: '/publikationen' },
   { path: '/contact' },
-  // Статьи по основному пути
   ...articleSlugs.map((slug) => ({
     path: `/publications/${slug}`,
   })),
-  // Немецкие алиасы
   ...articleSlugs.map((slug) => ({
     path: `/publikationen/${slug}`,
+  })),
+
+  // English version (/en/...)
+  { path: '/en' },
+  { path: '/en/about' },
+  { path: '/en/education' },
+  { path: '/en/experience' },
+  { path: '/en/skills' },
+  { path: '/en/trends' },
+  { path: '/en/publications' },
+  { path: '/en/contact' },
+  ...articleSlugs.map((slug) => ({
+    path: `/en/publications/${slug}`,
   })),
 ];

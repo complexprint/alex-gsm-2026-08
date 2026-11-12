@@ -12,12 +12,12 @@ const Experience = () => {
     title:
       language === 'de'
         ? 'Erfahrung & Projekte | Aleksei Bespechnyi — Marketing & Sales'
-        : 'Experience & Projects | Aleksei Bespechnyi — Digital Marketing, Sales & XR',
+        : 'Experience & Projects | Aleksei Bespechnyi — Marketing & Sales',
     description:
       language === 'de'
         ? 'Praktika bei Roll Out Innovation (partyboss.at) und NXRT Wien. Upselling La Galeria, Junior Company HAK, Moonshot Bootcamp, SAG\'S MULTI! Rhetorik-Sieger.'
-        : 'Internships at Roll Out Innovation GmbH (partyboss.at) and NXRT GmbH Vienna. Upselling at La Galeria restaurant, Junior Company HAK, Vienna Moonshot Bootcamp, SAG\'S MULTI! public speaking champion.',
-    canonical: 'https://alex-gsm.at/experience',
+        : 'Internships at Roll Out Innovation & NXRT Vienna. Upselling La Galeria, Junior Company HAK, Moonshot Bootcamp, SAG\'S MULTI! public speaking champion.',
+    basePath: '/experience',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
 

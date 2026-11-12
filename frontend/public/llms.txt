@@ -19,6 +19,7 @@
 - [Publications](https://alex-gsm.at/publications): 11 published regional and business articles for MeinBezirk.at with over 27,000 readers.
 - [Trends](https://alex-gsm.at/trends): Daily curated analysis of Austrian business, tech, and economic news.
 - [Contact](https://alex-gsm.at/contact): Direct contact form, email links, phone, and offer requests.
+- [English Version](https://alex-gsm.at/en): Complete English-language mirror of all site sections (/en, /en/about, /en/education, /en/experience, /en/skills, /en/trends, /en/publications, /en/contact).
 
 ## Research & Key Projects
 - [Nimbuscloud Pricing & Gamification](https://alex-gsm.at/education): Empirical data analysis of 306 dance schools, 3-tier pricing model (+92% projected revenue increase, ~€108,000/month potential), and B2B gamification mechanics.

@@ -1,17 +1,9 @@
 #!/usr/bin/env node
 /**
- * Генерация sitemap.xml на основе реального времени изменения файлов/статей.
+ * Генерация sitemap.xml для двуязычного сайта (DE & EN) alex-gsm.at.
  *
- * Запускается:
- *   - Вручную: `node scripts/generate-sitemap.mjs`
- *   - Автоматически в postbuild (до или после prerender)
- *
- * Что делает:
- *   1. Для каждой основной страницы (/about, /skills и т.д.) находит
- *      дату последнего коммита соответствующего JSX-файла через git log.
- *   2. Для каждой статьи (/publications/:slug) берёт дату из статьи
- *      или дату коммита/изменения.
- *   3. Записывает sitemap.xml в public/sitemap.xml (и в build/sitemap.xml, если build/ существует).
+ * Создает полные кластеры hreflang (de, en, x-default) для каждой страницы
+ * по официальным стандартам Google Search Central.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -76,7 +68,6 @@ try {
 
 const articleDateMap = new Map();
 articles.forEach((a) => {
-  // a.date format: "11.07.2026" -> "2026-07-11"
   let isoDate = null;
   if (a.date && /^\d{2}\.\d{2}\.\d{4}$/.test(a.date)) {
     const [day, month, year] = a.date.split('.');
@@ -85,7 +76,6 @@ articles.forEach((a) => {
   articleDateMap.set(a.id, isoDate);
 });
 
-// Маппинг страниц на исходные файлы для получения точной даты изменения
 const staticPages = [
   {
     path: '/',
@@ -138,32 +128,69 @@ const staticPages = [
 ];
 
 const today = new Date().toISOString().split('T')[0];
-
 const urls = [];
 
-// Добавляем статические страницы
+// Добавляем статические страницы (немецкие и английские URL с перекрестными hreflang)
 for (const p of staticPages) {
   const lastmod = getGitLastmod(p.file) || today;
+  const deLoc = `${BASE_URL}${p.path === '/' ? '/' : p.path}`;
+  const enLoc = `${BASE_URL}/en${p.path === '/' ? '' : p.path}`;
+
+  const alternates = [
+    { lang: 'de', href: deLoc },
+    { lang: 'en', href: enLoc },
+    { lang: 'x-default', href: deLoc },
+  ];
+
+  // DE URL
   urls.push({
-    loc: `${BASE_URL}${p.path === '/' ? '/' : p.path}`,
+    loc: deLoc,
     lastmod,
     changefreq: p.changefreq,
     priority: p.priority,
-    hasAlternates: true,
+    alternates,
+  });
+
+  // EN URL
+  urls.push({
+    loc: enLoc,
+    lastmod,
+    changefreq: p.changefreq,
+    priority: p.priority,
+    alternates,
   });
 }
 
-// Добавляем страницы статей
+// Добавляем статьи (немецкие и английские URL)
 const articlesLastmod = getGitLastmod('src/data/articles.js') || today;
 
 for (const slug of articleSlugs) {
   const articleDate = articleDateMap.get(slug) || articlesLastmod;
+  const deLoc = `${BASE_URL}/publications/${slug}`;
+  const enLoc = `${BASE_URL}/en/publications/${slug}`;
+
+  const alternates = [
+    { lang: 'de', href: deLoc },
+    { lang: 'en', href: enLoc },
+    { lang: 'x-default', href: deLoc },
+  ];
+
+  // DE URL
   urls.push({
-    loc: `${BASE_URL}/publications/${slug}`,
+    loc: deLoc,
     lastmod: articleDate,
     changefreq: 'monthly',
     priority: '0.8',
-    hasAlternates: false,
+    alternates,
+  });
+
+  // EN URL
+  urls.push({
+    loc: enLoc,
+    lastmod: articleDate,
+    changefreq: 'monthly',
+    priority: '0.8',
+    alternates,
   });
 }
 
@@ -180,10 +207,10 @@ for (const u of urls) {
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
 `;
-  if (u.hasAlternates) {
-    xml += `    <xhtml:link rel="alternate" hreflang="de" href="${u.loc}" />
-    <xhtml:link rel="alternate" hreflang="en" href="${u.loc}" />
-`;
+  if (u.alternates) {
+    for (const alt of u.alternates) {
+      xml += `    <xhtml:link rel="alternate" hreflang="${alt.lang}" href="${alt.href}" />\n`;
+    }
   }
   xml += `  </url>\n\n`;
 }
@@ -193,7 +220,7 @@ xml = xml.trimEnd() + '\n</urlset>\n';
 // Записываем в public/sitemap.xml
 const publicSitemap = path.join(PUBLIC_DIR, 'sitemap.xml');
 fs.writeFileSync(publicSitemap, xml, 'utf8');
-console.log(`✓ sitemap.xml обновлён в public/sitemap.xml (${urls.length} URLs)`);
+console.log(`✓ sitemap.xml обновлён в public/sitemap.xml (${urls.length} URLs, двуязычный)`);
 
 // Если существует build/, записываем и туда
 if (fs.existsSync(BUILD_DIR)) {

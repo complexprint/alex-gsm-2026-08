@@ -12,12 +12,12 @@ const Trends = () => {
     title:
       language === 'de'
         ? 'Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News'
-        : 'Marketing Trends | Aleksei Bespechnyi — SEO & Marketing News',
+        : 'Digital Marketing Trends | Aleksei Bespechnyi — SEO & Sales News',
     description:
       language === 'de'
         ? 'Aktuelle Nachrichten und Insights aus der SEO- und Digital-Marketing-Branche. Automatische Aktualisierung zweimal täglich.'
         : 'Latest news and insights from the SEO and digital marketing industry. Automatically updated twice daily.',
-    canonical: 'https://alex-gsm.at/trends',
+    basePath: '/trends',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
   const [news, setNews] = useState([]);

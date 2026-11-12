@@ -7,7 +7,7 @@ import useClickSound from '../hooks/useClickSound';
 const NavigationButtons = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const playClickSound = useClickSound();
 
@@ -19,14 +19,15 @@ const NavigationButtons = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const prefix = language === 'en' ? '/en' : '';
   const navItems = [
-    { path: '/', label: 'Home', icon: Home, delay: 0 },
-    { path: '/about', label: t('navAbout'), icon: User, delay: 100 },
-    { path: '/education', label: t('navEducation'), icon: GraduationCap, delay: 200 },
-    { path: '/experience', label: t('navExperience'), icon: Briefcase, delay: 300 },
-    { path: '/skills', label: t('navSkills'), icon: Award, delay: 400 },
-    { path: '/trends', label: t('navTrends'), icon: TrendingUp, delay: 500 },
-    { path: '/contact', label: t('navContact'), icon: Mail, delay: 600 },
+    { path: prefix || '/', label: 'Home', icon: Home, delay: 0 },
+    { path: `${prefix}/about`, label: t('navAbout'), icon: User, delay: 100 },
+    { path: `${prefix}/education`, label: t('navEducation'), icon: GraduationCap, delay: 200 },
+    { path: `${prefix}/experience`, label: t('navExperience'), icon: Briefcase, delay: 300 },
+    { path: `${prefix}/skills`, label: t('navSkills'), icon: Award, delay: 400 },
+    { path: `${prefix}/trends`, label: t('navTrends'), icon: TrendingUp, delay: 500 },
+    { path: `${prefix}/contact`, label: t('navContact'), icon: Mail, delay: 600 },
   ];
 
   return (

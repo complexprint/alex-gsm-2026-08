@@ -17,7 +17,7 @@ const Education = () => {
       language === 'de'
         ? 'Master & Bachelor Global Sales & Marketing an der FH OÖ Campus Steyr, Auslandssemester Providence University Taiwan, HAK Oberwart mit Auszeichnung.'
         : 'Master & Bachelor Global Sales & Marketing at FH Upper Austria (Steyr Campus), exchange semester Providence University Taiwan, HAK Oberwart with distinction.',
-    canonical: 'https://alex-gsm.at/education',
+    basePath: '/education',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
 

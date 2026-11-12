@@ -41,12 +41,12 @@ const Home = () => {
     title:
       language === 'de'
         ? 'Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales'
-        : 'Aleksei Bespechnyi — Marketing Manager in Linz | Digital & Sales',
+        : 'Aleksei Bespechnyi — Marketing & Sales Specialist in Linz',
     description:
       language === 'de'
         ? 'Marketing Manager mit Praxis bei Roll Out Innovation GmbH. +496% Social-Reichweite, +124% Traffic. Bachelor GSM (FH Steyr). Autor bei MeinBezirk.at.'
-        : 'Marketing Manager with hands-on experience at Roll Out Innovation GmbH. +496% Organic Social reach, +124% Organic Search traffic. Bachelor Global Sales & Marketing (FH Steyr). Contributor at MeinBezirk.at.',
-    canonical: 'https://alex-gsm.at/',
+        : 'Marketing Manager with Roll Out Innovation experience. +496% social reach, +124% traffic. Master & Bachelor GSM (FH Steyr). Author at MeinBezirk.at.',
+    basePath: '/',
     locale: language === 'de' ? 'de_AT' : 'en_US',
   });
 
@@ -392,7 +392,7 @@ const Home = () => {
                 <div className="flex flex-wrap gap-3">
                   <button
                     data-testid="publications-cta"
-                    onClick={() => navigate('/publications')}
+                    onClick={() => navigate(language === 'en' ? '/en/publications' : '/publications')}
                     className="inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-600 to-violet-600 hover:scale-[1.02] text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-[0_0_20px_rgba(192,38,211,0.25)] hover:shadow-[0_0_35px_rgba(192,38,211,0.5)] border border-white/20"
                   >
                     {language === 'de' ? 'Alle Publikationen ansehen' : 'View all publications'}

@@ -86,7 +86,7 @@ if (fs.existsSync(BUILD)) {
 
     // /publikationen/* являются каноническими алиасами на /publications/*
     // и делят единый title/description, поэтому исключаем их из проверки дублирования
-    const isAlias = url.startsWith('/publikationen');
+    const isAlias = url.startsWith('/publikationen') || /^\/en\/publications\/.+/.test(url) || url.startsWith('/en/publikationen');
 
     const cleanTitle = t ? decodeHtmlEntities(t[1].trim()) : null;
     const cleanDesc = d ? decodeHtmlEntities(d[1].trim()) : null;

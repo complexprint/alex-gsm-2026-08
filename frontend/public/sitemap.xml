@@ -7,16 +7,38 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/" />
   </url>
 
   <url>
     <loc>https://alex-gsm.at/about</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/about" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/about" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/about</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/about" />
   </url>
 
   <url>
@@ -25,7 +47,18 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/education" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/education" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/education" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/education" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/education</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/education" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/education" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/education" />
   </url>
 
   <url>
@@ -34,7 +67,18 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/experience" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/experience" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/experience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/experience" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/experience</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/experience" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/experience" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/experience" />
   </url>
 
   <url>
@@ -43,7 +87,18 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/skills" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/skills" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/skills" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/skills" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/skills</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/skills" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/skills" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/skills" />
   </url>
 
   <url>
@@ -52,7 +107,18 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/publications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications" />
   </url>
 
   <url>
@@ -61,16 +127,38 @@
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/trends" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/trends" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/trends" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/trends" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/trends</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/trends" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/trends" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/trends" />
   </url>
 
   <url>
     <loc>https://alex-gsm.at/contact</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/contact" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/contact</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/contact" />
   </url>
 
   <url>
@@ -78,6 +166,19 @@
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/wm-linz-gastro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/wm-linz-gastro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/wm-linz-gastro" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/wm-linz-gastro</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/wm-linz-gastro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/wm-linz-gastro" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/wm-linz-gastro" />
   </url>
 
   <url>
@@ -85,6 +186,19 @@
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/lask-liverpool" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/lask-liverpool" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/lask-liverpool" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/lask-liverpool</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/lask-liverpool" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/lask-liverpool" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/lask-liverpool" />
   </url>
 
   <url>
@@ -92,6 +206,19 @@
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/linz-hitze" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/linz-hitze" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/linz-hitze" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/linz-hitze</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/linz-hitze" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/linz-hitze" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/linz-hitze" />
   </url>
 
   <url>
@@ -99,6 +226,19 @@
     <lastmod>2026-06-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/larin-catenaccio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/larin-catenaccio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/larin-catenaccio" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/larin-catenaccio</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/larin-catenaccio" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/larin-catenaccio" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/larin-catenaccio" />
   </url>
 
   <url>
@@ -106,6 +246,19 @@
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/partybus" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/partybus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/partybus" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/partybus</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/partybus" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/partybus" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/partybus" />
   </url>
 
   <url>
@@ -113,6 +266,19 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/drogen-razzia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/drogen-razzia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/drogen-razzia" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/drogen-razzia</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/drogen-razzia" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/drogen-razzia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/drogen-razzia" />
   </url>
 
   <url>
@@ -120,6 +286,19 @@
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/jku-spartipps" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/jku-spartipps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/jku-spartipps" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/jku-spartipps</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/jku-spartipps" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/jku-spartipps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/jku-spartipps" />
   </url>
 
   <url>
@@ -127,6 +306,19 @@
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/gruener-stahl" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/gruener-stahl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/gruener-stahl" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/gruener-stahl</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/gruener-stahl" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/gruener-stahl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/gruener-stahl" />
   </url>
 
   <url>
@@ -134,6 +326,19 @@
     <lastmod>2026-01-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/jobportal-chaos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/jobportal-chaos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/jobportal-chaos" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/jobportal-chaos</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/jobportal-chaos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/jobportal-chaos" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/jobportal-chaos" />
   </url>
 
   <url>
@@ -141,6 +346,19 @@
     <lastmod>2026-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/winterradeln" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/winterradeln" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/winterradeln" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/winterradeln</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/winterradeln" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/winterradeln" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/winterradeln" />
   </url>
 
   <url>
@@ -148,5 +366,18 @@
     <lastmod>2026-01-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/linz-steyr-pendeln" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/linz-steyr-pendeln" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/linz-steyr-pendeln" />
+  </url>
+
+  <url>
+    <loc>https://alex-gsm.at/en/publications/linz-steyr-pendeln</loc>
+    <lastmod>2026-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://alex-gsm.at/publications/linz-steyr-pendeln" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://alex-gsm.at/en/publications/linz-steyr-pendeln" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://alex-gsm.at/publications/linz-steyr-pendeln" />
   </url>
 </urlset>
